@@ -19,3 +19,6 @@
 [submodule "vim/bundle/vim-supertab"]
 	path = vim/bundle/vim-supertab
 	url = git://github.com/tsaleh/vim-supertab.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
