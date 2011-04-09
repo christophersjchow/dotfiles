@@ -28,6 +28,13 @@ set spelllang=en_au               " Set spell check language.
 
 
 " ------------------------------------------------------------------------------
+" Run pathogen.
+" ------------------------------------------------------------------------------
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+
+" ------------------------------------------------------------------------------
 " Search and Replace
 " ------------------------------------------------------------------------------
 set incsearch                     " Show partial matches as search is entered.
@@ -137,6 +144,6 @@ if has("autocmd")
         au BufNewFile,BufRead *.mustache set ft=html syntax=mustache
         au BufNewFile,BufRead *.zsh-theme set ft=zsh
         au BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
-        au BufNewFile,BufRead *.sass set ft=haml
+        " au BufNewFile,BufRead *.sass set ft=haml
     augroup END
 endif
