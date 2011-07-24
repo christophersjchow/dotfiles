@@ -16,13 +16,13 @@ set history=50                    " Size of command history.
 set encoding=utf8                 " Always use unicode.
 set clipboard+=unnamed            " Share the clipboard.
 set backspace=indent,eol,start    " Fix backspace.
-set backup                        " Keep a backup file.
+set nobackup                      " No backups
+set nowritebackup
 
-set backupdir^=$HOME/.backup/     " Store backup files in one place.
-set directory^=$HOME/.backup/     " Store swap files in same place.
-set undofile                      " Save undo tree.
-set undoreload=1000               " Allow undoing a reload from disk.
-set undodir^=$HOME/.backup/       " Store undo files in the same place.
+if version > 7.2
+    set noundofile                " Don't save undo tree.
+endif
+
 set pastetoggle=<F5>              " Paste with sane indentation.
 set spelllang=en_au               " Set spell check language.
 
