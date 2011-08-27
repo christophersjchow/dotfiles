@@ -15,18 +15,17 @@ export LS_COLORS=`cat ~/.lscolors`
 export EDITOR="vim"
 
 # Run oh-my-zsh.
-plugins=(rails git brew ruby osx gem bundler rvm)
+plugins=(rails git brew ruby osx gem bundler)
 source $ZSH/oh-my-zsh.sh
 
 # Set my PATH.
-export PATH="/Users/Soliah/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
+export PATH="$HOME/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
+
+# Add rbenv to path.
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 
 # Set node PATH.
 export NODE_PATH="/usr/local/lib/node"
-
-# Run RVM.
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
-unsetopt auto_name_dirs
 
 # Aliases
 alias ls="gls --color=auto" # Use GNU ls
