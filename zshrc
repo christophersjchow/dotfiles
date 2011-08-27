@@ -21,6 +21,9 @@ source $ZSH/oh-my-zsh.sh
 # Set my PATH.
 export PATH="/Users/Soliah/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
 
+# Set node PATH.
+export NODE_PATH="/usr/local/lib/node"
+
 # Run RVM.
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
 unsetopt auto_name_dirs
