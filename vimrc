@@ -144,6 +144,8 @@ if has("autocmd")
         au BufNewFile,BufRead *.mustache set ft=html syntax=mustache
         au BufNewFile,BufRead *.zsh-theme set ft=zsh
         au BufNewFile,BufRead jquery.*.js set ft=javascript syntax=jquery
-        " au BufNewFile,BufRead *.sass set ft=haml
+        au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
     augroup END
 endif
+
+hi def link rubyRspec Function
