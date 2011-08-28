@@ -81,9 +81,16 @@ filetype plugin indent on         " Load syntax files for better indenting.
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
-colorscheme grb4                  " Colour scheme.
-set guifont=Monaco:h13            " Use a good font.
-set selection=exclusive           " Do not select the end of line. 
+if has("gui_macvim")
+    colorscheme desert
+    set guifont=Monaco:h16
+    set lines=40
+    set columns=116
+else
+    colorscheme grb4
+    set guifont=Monaco:h13            " Use a good font.
+    set selection=exclusive           " Do not select the end of line. 
+endif
 
 " Set color for line highlight.
 hi CursorLine cterm=NONE ctermbg=black
