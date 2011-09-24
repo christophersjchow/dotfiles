@@ -44,6 +44,7 @@ alias tmux="tmux -uf $HOME/.tmux.conf"
 alias t="tmux"
 alias postgres_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias mvim="nocorrect mvim"
 
 # Keybinds - OSX
 bindkey -v

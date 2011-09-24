@@ -1,7 +1,7 @@
 " ------------------------------------------------------------------------------
 "          FILE: .vimrc
 "   DESCRIPTION: Vim configuration file. Based heavily on Sorin Ionescu's.
-"        AUTHOR: Christopher Chow (soliah at gmail dot com)
+"        AUTHOR: Christopher Chow (chris at chowie dot net)
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
@@ -82,7 +82,8 @@ filetype plugin indent on         " Load syntax files for better indenting.
 " User Interface
 " ------------------------------------------------------------------------------
 if has("gui_macvim")
-    colorscheme desert
+    set background=light
+    colorscheme solarized
     set guifont=Monaco:h16
     set lines=40
     set columns=116
@@ -101,11 +102,11 @@ hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=ligh
 hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
 
 if has("gui_running")
-    set guioptions+=m             " Enable menu bar.
+    set guioptions-=m             " Disable menu bar.
     set guioptions-=T             " Disable the tool bar bar.
     set guioptions-=l             " Disable left scrollbar.
     set guioptions-=L             " Disable left scrollbar if split is present.
-    set guioptions+=r             " Enable right scrollbar.
+    set guioptions-=r             " Diable right scrollbar.
     set guioptions+=R             " Enable right scrollbar if split is present.
     set guioptions-=a             " Do not auto copy selection to clipboard.
 
