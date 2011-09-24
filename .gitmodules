@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = https://github.com/bbommarito/vim-slim.git
+[submodule "vim/bundle/vim-rackup"]
+	path = vim/bundle/vim-rackup
+	url = git@github.com:Soliah/vim-rackup.git
