@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-rackup"]
 	path = vim/bundle/vim-rackup
 	url = git@github.com:Soliah/vim-rackup.git
+[submodule "vim/bundle/vim-ruby"]
+	path = vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
