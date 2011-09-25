@@ -37,18 +37,24 @@
 [submodule "vim/bundle/vim-gemfile"]
 	path = vim/bundle/vim-gemfile
 	url = https://github.com/jc00ke/Gemfile.vim.git
+    ignore = dirty
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = https://github.com/bbommarito/vim-slim.git
+    ignore = dirty
 [submodule "vim/bundle/vim-rackup"]
 	path = vim/bundle/vim-rackup
 	url = git@github.com:Soliah/vim-rackup.git
+    ignore = dirty
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+    ignore = dirty
 [submodule "vim/bundle/vim-railscasts-theme"]
 	path = vim/bundle/vim-railscasts-theme
 	url = https://github.com/jpo/vim-railscasts-theme.git
+    ignore = dirty
 [submodule "vim/bundle/vim-command-t"]
 	path = vim/bundle/vim-command-t
-	url = git://git.wincent.com/command-t.git
+    url = git://git.wincent.com/command-t.git
+    ignore = dirty
