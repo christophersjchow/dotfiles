@@ -46,3 +46,9 @@
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/bundle/vim-railscasts-theme"]
+	path = vim/bundle/vim-railscasts-theme
+	url = https://github.com/jpo/vim-railscasts-theme.git
+[submodule "vim/bundle/vim-command-t"]
+	path = vim/bundle/vim-command-t
+	url = git://git.wincent.com/command-t.git
