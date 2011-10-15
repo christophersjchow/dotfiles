@@ -85,22 +85,6 @@ filetype plugin indent on         " Load syntax files for better indenting.
 " User Interface
 " ------------------------------------------------------------------------------
 
-" If MacVim do some specific things.
-if has("gui_macvim")
-    colorscheme railscasts            " Railscasts colour scheme.
-    set guifont=Monaco:h16            " Use Monaco font on OSX.
-    set lines=52                      " Window size.
-    set columns=165
-    set vb                            " Disable the audible bell.
-
-    macmenu &File.New\ Tab key=<nop>
-    map <D-t> :CommandT<CR>
-else
-    colorscheme grb4
-    set guifont=Monaco:h13            " Use a good font.
-    set selection=exclusive           " Do not select the end of line. 
-endif
-
 " Set color for line highlight.
 hi CursorLine cterm=NONE ctermbg=black
 
@@ -117,13 +101,20 @@ if has("gui_running")
     set guioptions-=r             " Diable right scrollbar.
     set guioptions-=a             " Do not auto copy selection to clipboard.
 
+    " If MacVim do some specific things.
     if has('gui_macvim')
-        set transparency=5                               " Transparent background.
-        set fuopt+=maxvert,maxhorz                       " Real full screen.
-        let macvim_hig_shift_movement = 1                " Shift+Arrows selection.
-        macm Window.Select\ Previous\ Tab key=<D-S-Left> " Command+Shift+Left.
-        macm Window.Select\ Next\ Tab key=<D-S-Right>    " Command+Shift+Right.
+        colorscheme railscasts            " Railscasts colour scheme.
+        set guifont=Monaco:h16            " Use Monaco font on OSX.
+        set lines=52                      " Window size.
+        set columns=165
+        set vb                            " Disable the audible bell.
+        macmenu &File.New\ Tab key=<nop>
+        map <D-t> :CommandT<CR>
     endif
+else
+    colorscheme grb4
+    set guifont=Monaco:h13            " Use a good font.
+    set selection=exclusive           " Do not select the end of line. 
 endif
 
 if has('mouse')
