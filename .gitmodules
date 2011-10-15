@@ -36,7 +36,7 @@
     ignore = dirty
 [submodule "vim/bundle/vim-gemfile"]
 	path = vim/bundle/vim-gemfile
-	url = https://Soliah@github.com/Soliah/vim-gemfile.git
+	url = https://github.com/Soliah/vim-gemfile.git
     ignore = dirty
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
