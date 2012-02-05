@@ -15,7 +15,7 @@ export LS_COLORS=`cat ~/.lscolors`
 export EDITOR="vim"
 
 # Run oh-my-zsh.
-plugins=(rails git brew ruby osx gem bundler rvm)
+plugins=(rails git brew ruby osx gem bundler rvm nyan)
 source $ZSH/oh-my-zsh.sh
 
 # Set my PATH.
