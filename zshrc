@@ -19,7 +19,7 @@ plugins=(rails git brew ruby osx gem bundler rvm nyan)
 source $ZSH/oh-my-zsh.sh
 
 # Set my PATH.
-export PATH="$HOME/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
+export PATH="$HOME/Coding/play:$HOME/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
 
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
