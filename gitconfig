@@ -1,6 +1,6 @@
 [user]
 	name = Christopher Chow
-    email = chris@chowie.net
+	email = chris@chowie.net
 [color]
     ui = auto
 [alias]
@@ -102,3 +102,11 @@
   
   # [ahg = archive head gzip] creates a tar.gz archive named after the last commits hash from HEAD! in the directory above the repository
   ahg = "!git archive HEAD --format=tar | gzip > ../`git h`.tar.gz"    
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[core]
+	excludesfile = /Users/Soliah/.gitexclude
