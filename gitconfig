@@ -86,7 +86,7 @@
   pushsub = submodule foreach "git push origin master"
   
   # Pull submodules from origin master
-  pullsub = submodule foreach "git pull origin master"
+  pullsub = submodule foreach --recursive "git pull origin master"
 
   # [icg = if changed gui] Opens git gui if there are changes in the repository
   icg = "!REPOCHANGED=`git s`; REPOCHANGED=${#REPOCHANGED}; if [ $REPOCHANGED != 0 ]; then git gui & fi;"
