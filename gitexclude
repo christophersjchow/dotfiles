@@ -32,3 +32,6 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# Editor files #
+*.swp
