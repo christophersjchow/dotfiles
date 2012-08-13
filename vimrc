@@ -9,7 +9,6 @@
 " ------------------------------------------------------------------------------
 command! W :w                     " Seriously, it's not like :W is bound
                                   " to anything anyway.
-map K k 
 set nocompatible                  " Turn off vi compatibility.
 set undolevels=1000               " Large undo levels.
 set history=50                    " Size of command history.
