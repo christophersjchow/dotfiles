@@ -102,7 +102,7 @@ if has("gui_running")
 
     " If MacVim do some specific things.
     if has('gui_macvim')
-        colorscheme railscasts            " Railscasts colour scheme.
+        colorscheme solarized             " Color scheme.
         set guifont=Monaco:h16            " Use Monaco font on OSX.
         set lines=52                      " Window size.
         set columns=165
