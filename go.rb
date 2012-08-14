@@ -121,4 +121,8 @@ Dir.chdir("#{home}/Coding/dotfiles") do
   puts "\n"
 end
 
+ohai "Building native extensions for Command-T vim plugin..."
+system "#{which('ruby')} #{home}Coding/dotfiles/vim/bundle/vim-command-t/ruby/command-t/extconf.rb"
+system "#{which('make')} #{home}Coding/dotfiles/vim/bundle/vim-command-t/ruby/command-t/make"
+
 ohai "Installation successful!"
