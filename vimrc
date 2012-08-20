@@ -147,9 +147,9 @@ if has("autocmd")
     au FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
     au FileType sass setlocal expandtab shiftwidth=2 tabstop=2
     au FileType haml setlocal expandtab shiftwidth=2 tabstop=2
+    au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
     
     augroup filetypedetect
-        au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
         au BufNewFile,BufRead bash-fc-* setf sh
         au BufNewFile,BufRead zshecl* setf zsh
         au BufNewFile,BufRead *.applescript setf applescript
