@@ -32,7 +32,7 @@ def system *args
 end
 
 def home
-  Dir.home
+  Dir.chdir
 end
 
 def getc  # NOTE only tested on OS X
