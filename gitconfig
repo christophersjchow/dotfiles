@@ -109,5 +109,5 @@
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [core]
-	excludesfile = /Users/Soliah/.gitexclude
-	editor = vi
+	excludesfile = ~/.gitexclude
+	editor = vim

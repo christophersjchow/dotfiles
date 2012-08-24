@@ -74,3 +74,4 @@ export NODE_PATH="/usr/local/lib/node"
 
 alias g="git"
 alias pvm="pythonbrew"
+alias be="bundle exec"

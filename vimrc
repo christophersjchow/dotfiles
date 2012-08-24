@@ -111,11 +111,6 @@ if has("gui_running")
         macmenu &Tools.Make key=<nop>
         map <D-t> :CommandT<CR>
         map <D-b> :CommandTBuffer<CR>
-
-        autocmd vimenter * NERDTree      " Start NERDtree.
-
-        " Close window if last buffer is NERDtree.
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
     endif
 else
     colorscheme grb4

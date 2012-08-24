@@ -8,4 +8,4 @@ export rvm_gemset_create_on_use_flag=1
 
 # Automatically trust project .rvmrc files
 export rvm_trust_rvmrcs_flag=1
-export rvm_path="/Users/Soliah/.rvm"
+export rvm_path="$HOME/.rvm"
