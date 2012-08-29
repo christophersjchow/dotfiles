@@ -71,3 +71,6 @@ url=git@github.com:Soliah/prezto.git
 [submodule "vim/bundle/vim-nerdtree"]
 	path = vim/bundle/vim-nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/vim-colors-tomorrow"]
+	path = vim/bundle/vim-colors-tomorrow
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git
