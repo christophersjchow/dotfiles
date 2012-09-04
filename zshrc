@@ -28,5 +28,6 @@ export PATH="$HOME/Coding/scripts:/usr/local/Cellar/python/2.7.1/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
 
 alias g="git"
+alias c="cd"
 alias pvm="pythonbrew"
 alias be="bundle exec"

@@ -56,6 +56,8 @@ set shiftwidth=4                  " Set auto indent spacing.
 set shiftround                    " Shift to the next round tab stop.
 set expandtab                     " Expand tabs into spaces.
 set smarttab                      " Insert spaces in front of lines.
+set listchars=tab:>·,trail:·      " Show leading whitespace
+set list
 
 
 " ------------------------------------------------------------------------------
@@ -107,10 +109,15 @@ if has("gui_running")
         set lines=52                      " Window size.
         set columns=165
         set vb                            " Disable the audible bell.
-        macmenu &File.New\ Tab key=<nop>
+        macmenu &File.New\ Tab key=<D-S-t>
+        macmenu &File.Print key=<nop>
         macmenu &Tools.Make key=<nop>
-        map <D-t> :CommandT<CR>
-        map <D-b> :CommandTBuffer<CR>
+
+        " CtrlP
+        map <D-t> :CtrlP<CR>
+        map <D-b> :CtrlPBuffer<CR>
+        map <D-p> :CtrlPBuffer<CR>
+        let g:ctrlp_user_command = 'find %s -type f' 
     endif
 else
     colorscheme grb4
