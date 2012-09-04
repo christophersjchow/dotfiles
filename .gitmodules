@@ -62,9 +62,6 @@
     path = vim/bundle/vim-command-t
     url = git://git.wincent.com/command-t.git
     ignore = dirty
-[submodule "oh-my-zsh"]
-    path = oh-my-zsh
-url=git@github.com:Soliah/prezto.git
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -74,3 +71,6 @@ url=git@github.com:Soliah/prezto.git
 [submodule "vim/bundle/vim-colors-tomorrow"]
 	path = vim/bundle/vim-colors-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "zprezto"]
+	path = zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
