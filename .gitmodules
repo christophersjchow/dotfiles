@@ -76,3 +76,6 @@
 [submodule "vim/bundle/vim-zoomwin"]
 	path = vim/bundle/vim-zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/vim-jasmine"]
+	path = vim/bundle/vim-jasmine
+	url = https://github.com/claco/jasmine.vim.git
