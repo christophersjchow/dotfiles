@@ -6,7 +6,7 @@
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' keymap 'emacs'
+zstyle ':prezto:module:editor' keymap 'vi'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'no'
@@ -37,6 +37,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'osx' \
   'ruby' \
+  'python' \
   'directory' \
   'spectrum' \
   'utility' \
@@ -44,6 +45,13 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
+
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
