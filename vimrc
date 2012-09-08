@@ -120,7 +120,7 @@ if has("gui_running")
         let g:ctrlp_user_command = 'find %s -type f' 
     endif
 else
-    colorscheme grb4
+    colorscheme Tomorrow-Night-Bright
     set guifont=Monaco:h13            " Use a good font.
     set selection=exclusive           " Do not select the end of line. 
 endif

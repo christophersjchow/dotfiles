@@ -106,8 +106,8 @@
   # [ahg = archive head gzip] creates a tar.gz archive named after the last commits hash from HEAD! in the directory above the repository
   ahg = "!git archive HEAD --format=tar | gzip > ../`git h`.tar.gz"    
 [difftool "sourcetree"]
-  cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-  path = 
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-  trustExitCode = true
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
