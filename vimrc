@@ -116,7 +116,7 @@ if has("gui_running")
         " CtrlP
         map <D-t> :CtrlP<CR>
         map <D-b> :CtrlPBuffer<CR>
-        map <D-p> :CtrlPBuffer<CR>
+        map <D-p> :CtrlPMRU<CR>
         let g:ctrlp_user_command = 'find %s -type f' 
     endif
 else
@@ -150,8 +150,9 @@ if has("autocmd")
     au FileType sass setlocal expandtab shiftwidth=2 tabstop=2
     au FileType haml setlocal expandtab shiftwidth=2 tabstop=2
     au FileType cucumber setlocal expandtab shiftwidth=2 tabstop=2
-    au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-    
+    au FileType coffee setlocal expandtab shiftwidth=2 tabstop=2
+    au FileType gitconfig setlocal expandtab shiftwidth=2 tabstop=2
+
     augroup filetypedetect
         au BufNewFile,BufRead bash-fc-* setf sh
         au BufNewFile,BufRead zshecl* setf zsh
