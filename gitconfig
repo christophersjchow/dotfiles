@@ -2,7 +2,7 @@
   name = Christopher Chow
   email = chris@chowie.net
 [core]
-  excludesfile = /Users/Soliah/.gitexclude
+  excludesfile = ~/.gitexclude
   editor = vim
 [color]
   ui = auto
