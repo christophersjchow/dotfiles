@@ -152,18 +152,9 @@ if has("autocmd")
     au FileType cucumber setlocal expandtab shiftwidth=2 tabstop=2
     au FileType coffee setlocal expandtab shiftwidth=2 tabstop=2
     au FileType gitconfig setlocal expandtab shiftwidth=2 tabstop=2
+    au FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
 
-    augroup filetypedetect
-        au BufNewFile,BufRead bash-fc-* setf sh
-        au BufNewFile,BufRead zshecl* setf zsh
-        au BufNewFile,BufRead *.applescript setf applescript
-        au BufNewFile,BufRead *.scpt setf applescript
-        au BufNewFile,BufRead *.txt setf text
-        au BufNewFile,BufRead *.mustache set ft=html syntax=mustache
-        au BufNewFile,BufRead *.zsh-theme set ft=zsh
-        au BufNewFile,BufRead *.jquery*.js set ft=javascript syntax=jquery
-        au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
-    augroup END
+    au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 endif
 
 hi def link rubyRspec Function
