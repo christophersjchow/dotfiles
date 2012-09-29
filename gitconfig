@@ -8,13 +8,13 @@
   c  = "!git log --oneline | wc -l "
   ignored = "!git ls-files --others -i --exclude-standard --directory"
   pushsub = submodule foreach "git push origin master"
-  pullsub = submodule foreach --recursive "git pull origin master"
+  pullsub = submodule foreach "git pull origin master"
 [user]
   name = Christopher Chow
   email = chris@chowie.net
 [core]
   legacyheaders = false
-  excludesfile = ~/.gitexclude
+  excludesfile = /Users/Soliah/.gitexclude
   whitespace = trailing-space,space-before-tab
   quotepath = false
   autocrlf = input
@@ -31,3 +31,9 @@
   default = tracking
 [rerere]
   enabled = true
+[difftool "sourcetree"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = true

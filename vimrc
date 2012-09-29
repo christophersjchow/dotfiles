@@ -22,12 +22,48 @@ if version > 7.2
     set noundofile                " Don't save undo tree.
 endif
 
-set pastetoggle=<F5>              " Paste with sane indentation.
 set spelllang=en_au               " Set spell check language.
 
-nnoremap <Tab> :bnext<CR>         " Make tab and shift tab cycle through buffers 
-nnoremap <S-Tab> :bprevious<CR>
-nnoremap <F6> :noh<CR><F6>        " Make :noh a shortcut.
+" ------------------------------------------------------------------------------
+" Binds
+" ------------------------------------------------------------------------------
+let mapleader = ","               " Use comma as leader.
+
+set pastetoggle=<F5>              " Paste with sane indentation.
+
+" Make :noh a shortcut.
+nnoremap <F6> :noh<CR>
+
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+" Move around splits with by holding Ctrl.
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" CtrlP
+map <Leader>t :CtrlP<CR>
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>p :CtrlPMRU<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rename current file interactively. Stolen from @garybernhardt on Github.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
 
 " ------------------------------------------------------------------------------
 " Run pathogen.
@@ -109,20 +145,16 @@ if has("gui_running")
         set lines=52                      " Window size.
         set columns=165
         set vb                            " Disable the audible bell.
+
+        " Remove some shortcuts defined in MacVim
         macmenu &File.New\ Tab key=<D-S-t>
         macmenu &File.Print key=<nop>
         macmenu &Tools.Make key=<nop>
-
-        " CtrlP
-        map <D-t> :CtrlP<CR>
-        map <D-b> :CtrlPBuffer<CR>
-        map <D-p> :CtrlPMRU<CR>
-        let g:ctrlp_user_command = 'find %s -type f' 
     endif
 else
     colorscheme Tomorrow-Night-Bright
     set guifont=Monaco:h13            " Use a good font.
-    set selection=exclusive           " Do not select the end of line. 
+    set selection=exclusive           " Do not select the end of line.
 endif
 
 if has('mouse')
