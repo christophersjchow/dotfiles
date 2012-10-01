@@ -17,6 +17,10 @@ set clipboard+=unnamed            " Share the clipboard.
 set backspace=indent,eol,start    " Fix backspace.
 set nobackup                      " No backups
 set nowritebackup
+set notimeout                     " Fix lag in iTerm.
+set ttimeout
+set timeoutlen=50
+set nomodeline
 
 if version > 7.2
     set noundofile                " Don't save undo tree.
@@ -31,8 +35,11 @@ let mapleader = ","               " Use comma as leader.
 
 set pastetoggle=<F5>              " Paste with sane indentation.
 
-" Make :noh a shortcut.
-nnoremap <F6> :noh<CR>
+" Do what Gary Bernhardt does for removing search results.
+function! MapCR()
+  nnoremap <CR> :nohlsearch<CR>
+endfunction
+call MapCR()
 
 map <Left> <Nop>
 map <Right> <Nop>
@@ -50,6 +57,11 @@ map <Leader>t :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlPMRU<CR>
 
+" Strip all trailing whistpace.
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Ack
+nnoremap <leader>a :Ack 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rename current file interactively. Stolen from @garybernhardt on Github.

@@ -9,7 +9,12 @@ fi
 # Load pythonz
 [[ -s "$HOME/.pythonz/etc/bashrc" ]] && source "$HOME/.pythonz/etc/bashrc"
 
+# Load tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
 # Aliases
 alias g="git"
+alias v="Vim"
+alias t="tmux"
 alias c="cd"
 alias be="bundle exec"

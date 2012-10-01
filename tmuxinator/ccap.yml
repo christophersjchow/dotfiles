@@ -1,0 +1,13 @@
+# ~/.tmuxinator/ccap.yml
+# you can make as many tabs as you wish...
+
+project_name: ccap
+project_root: ~/Coding/ccap
+tabs:
+  - capistrano:
+  - server: be rails s
+  - spork: be spork
+  - console: be rails c
+  - logs: tail -f log/development.log
+  - git:
+  - vim: vim
