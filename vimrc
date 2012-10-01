@@ -7,26 +7,49 @@
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
-command! W :w                     " Seriously, it's not like :W is bound
-                                  " to anything anyway.
-set nocompatible                  " Turn off vi compatibility.
-set undolevels=1000               " Large undo levels.
-set history=50                    " Size of command history.
-set encoding=utf8                 " Always use unicode.
-set clipboard+=unnamed            " Share the clipboard.
-set backspace=indent,eol,start    " Fix backspace.
-set nobackup                      " No backups
+command! W :w                                " Seriously, it's not like :W is bound
+                                             " to anything anyway.
+set nocompatible                             " Turn off vi compatibility.
+set undolevels=1000                          " Large undo levels.
+set history=50                               " Size of command history.
+set encoding=utf8                            " Always use unicode.
+set clipboard+=unnamed                       " Share the clipboard.
+set backspace=indent,eol,start               " Fix backspace.
+set nobackup                                 " No backups
 set nowritebackup
-set notimeout                     " Fix lag in iTerm.
+set notimeout                                " Fix lag in iTerm.
 set ttimeout
 set timeoutlen=50
 set nomodeline
 
 if version > 7.2
-    set noundofile                " Don't save undo tree.
+    set noundofile                           " Don't save undo tree.
 endif
 
-set spelllang=en_au               " Set spell check language.
+set spelllang=en_au                          " Set spell check language.
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rename current file interactively. Stolen from @garybernhardt on Github.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+
+" ------------------------------------------------------------------------------
+" Run pathogen.
+" ------------------------------------------------------------------------------
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 
 " ------------------------------------------------------------------------------
 " Binds
@@ -52,36 +75,30 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" CtrlP
-map <Leader>t :CtrlP<CR>
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>p :CtrlPMRU<CR>
-
 " Strip all trailing whistpace.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Ack
 nnoremap <leader>a :Ack 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rename current file interactively. Stolen from @garybernhardt on Github.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
 
 " ------------------------------------------------------------------------------
-" Run pathogen.
+" CtrlP
 " ------------------------------------------------------------------------------
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+map <Leader>t :CtrlP<CR>
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>p :CtrlPMRU<CR>
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+let g:ctrlp_user_command = {
+\ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+\ 'fallback': 'find %s -type f'
+\ }
 
 
 " ------------------------------------------------------------------------------
