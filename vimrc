@@ -81,6 +81,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Ack
 nnoremap <leader>a :Ack 
 
+" Tabular
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP

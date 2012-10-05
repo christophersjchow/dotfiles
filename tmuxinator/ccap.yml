@@ -4,10 +4,12 @@
 project_name: ccap
 project_root: ~/Coding/ccap
 tabs:
-  - capistrano:
-  - server: be rails s
-  - spork: be spork
   - console: be rails c
+  - rspec: 
+  - cucumber:
+  - delayed: be rake jobs:work
   - logs: tail -f log/development.log
   - git:
+  - terminal:
+  - terminal:
   - vim: vim
