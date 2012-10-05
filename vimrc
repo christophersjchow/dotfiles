@@ -82,8 +82,8 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>a :Ack 
 
 " Tabular
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
