@@ -29,21 +29,6 @@ endif
 set spelllang=en_au                          " Set spell check language.
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rename current file interactively. Stolen from @garybernhardt on Github.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>r :call RenameFile()<cr>
-
-
 " ------------------------------------------------------------------------------
 " Run pathogen.
 " ------------------------------------------------------------------------------
@@ -84,6 +69,22 @@ nnoremap <leader>a :Ack
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rename current file interactively. Stolen from @garybernhardt on Github.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>r :call RenameFile()<cr>
+
 
 " ------------------------------------------------------------------------------
 " CtrlP
