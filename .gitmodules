@@ -34,10 +34,6 @@
     path = vim/bundle/vim-pathogen
     url = https://github.com/tpope/vim-pathogen.git
     ignore = dirty
-[submodule "vim/bundle/vim-gemfile"]
-    path = vim/bundle/vim-gemfile
-    url = https://github.com/Soliah/vim-gemfile.git
-    ignore = dirty
 [submodule "vim/bundle/vim-slim"]
     path = vim/bundle/vim-slim
     url = https://github.com/bbommarito/vim-slim.git
