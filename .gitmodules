@@ -38,10 +38,6 @@
     path = vim/bundle/vim-slim
     url = https://github.com/bbommarito/vim-slim.git
     ignore = dirty
-[submodule "vim/bundle/vim-rackup"]
-    path = vim/bundle/vim-rackup
-    url = https://github.com/Soliah/vim-rackup.git
-    ignore = dirty
 [submodule "vim/bundle/vim-ruby"]
     path = vim/bundle/vim-ruby
     url = https://github.com/vim-ruby/vim-ruby.git
