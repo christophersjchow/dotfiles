@@ -220,6 +220,8 @@ if has("autocmd")
     au FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
 
     au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+
+    au BufNewFile,BufRead *.xrl,*.yrl,*.app.src,rebar.config,reltool.config,app.config,.erlang setfiletype erlang
 endif
 
 hi def link rubyRspec Function
