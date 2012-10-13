@@ -32,9 +32,7 @@ set spelllang=en_au                          " Set spell check language.
 " ------------------------------------------------------------------------------
 " Run pathogen.
 " ------------------------------------------------------------------------------
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
+call pathogen#infect()
 
 " ------------------------------------------------------------------------------
 " Binds
@@ -83,7 +81,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>r :call RenameFile()<cr>
+map <leader><leader>r :call RenameFile()<cr>
 
 
 " ------------------------------------------------------------------------------

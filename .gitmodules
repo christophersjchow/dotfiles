@@ -89,3 +89,9 @@
 [submodule "vim/bundle/vim-tabular"]
 	path = vim/bundle/vim-tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-vroom"]
+	path = vim/bundle/vim-vroom
+	url = https://github.com/skalnik/vim-vroom.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
