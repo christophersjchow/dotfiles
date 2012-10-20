@@ -7,4 +7,6 @@ tabs:
   - spork: be spork
   - logs: tail -f log/development.log
   - terminal:
+  - terminal:
+  - terminal:
   - vim: vim
