@@ -1,6 +1,6 @@
 set cmd:prompt "\[\e[1;37m\]lftp\] \[\e[01;34m\]\]\u \[\e[00m\]on \[\e[01;31m\]\h \[\e[00m\]in \[\e[01;34m\]\]\\w \n\[\e[00m\]\]$ "
 set cmd:default-title "lftp \h:\w"
-set cmd:queue-parallel 2
+set cmd:queue-parallel 1
 
 # diable logs
 set cmd:save-cwd-history false
@@ -10,7 +10,7 @@ set xfer:log false
 
 # mirror settings
 set mirror:use-pget-n 10
-set mirror:parallel-transfer-count 2
+set mirror:parallel-transfer-count 1
 
 # pget settings
 set pget:default-n 10
