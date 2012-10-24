@@ -91,10 +91,13 @@ map <Leader>t :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlPMRU<CR>
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_user_command = 'find %s -type f'
-
+let g:ctrlp_user_command = {
+\ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+\ 'fallback': 'find . -type f | egrep "^\.[\/.]\.(git/|hg|svn/|gitmodules|DS_Store)"'
+\ }
 
 " ------------------------------------------------------------------------------
 " Search and Replace
