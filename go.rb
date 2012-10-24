@@ -32,7 +32,7 @@ def system *args
 end
 
 def home
-  Dir.chdir
+  Dir.home
 end
 
 def getc  # NOTE only tested on OS X
@@ -64,35 +64,7 @@ end
 abort "Git isn't installed. Please install git." unless which('git')
 abort "Don't run this as root!" if Process.uid == 0
 
-ohai "This script will install dotfiles from https://github.com/Soliah/dotfiles:"
-puts "#{Tty.blue}#{home}/Coding/dotfiles/...#{Tty.reset}"
-puts "#{Tty.blue}#{home}/Coding/dotfiles/zprezto/...#{Tty.reset}"
-puts "#{Tty.blue}#{home}/Coding/dotfiles/vim/...#{Tty.reset}"
-puts "#{Tty.blue}#{home}/Coding/dotfiles/lftp/...#{Tty.reset}"
-puts "#{Tty.blue}#{home}/Coding/dotfiles/tmuxinator/...#{Tty.reset}"
-puts "\n"
-
-ohai "With these symlinks in your home directory:"
-puts "#{Tty.magenta}#{home}/.zprezto#{Tty.reset}#{Tty.reset} -> #{home}/Coding/dotfiles/zprezto"
-puts "#{Tty.magenta}#{home}/.lftp#{Tty.reset} -> #{home}/Coding/dotfiles/lftp"
-puts "#{Tty.magenta}#{home}/.vim#{Tty.reset} -> #{home}/Coding/dotfiles/vim"
-puts "#{Tty.magenta}#{home}/.ackrc#{Tty.reset} -> #{home}/Coding/dotfiles/ackrc"
-puts "#{Tty.magenta}#{home}/.gemrc#{Tty.reset} -> #{home}/Coding/dotfiles/gemrc"
-puts "#{Tty.magenta}#{home}/.gitconfig#{Tty.reset} -> #{home}/Coding/dotfiles/gitconfig"
-puts "#{Tty.magenta}#{home}/.gitexclude#{Tty.reset} -> #{home}/Coding/dotfiles/gitexclude"
-puts "#{Tty.magenta}#{home}/.gvimrc#{Tty.reset} -> #{home}/Coding/dotfiles/gvimrc"
-puts "#{Tty.magenta}#{home}/.hushlogin#{Tty.reset} -> #{home}/Coding/dotfiles/hushlogin"
-puts "#{Tty.magenta}#{home}/.rvmrc#{Tty.reset} -> #{home}/Coding/dotfiles/rvmrc"
-puts "#{Tty.magenta}#{home}/.screenrc#{Tty.reset} -> #{home}/Coding/dotfiles/screenrc"
-puts "#{Tty.magenta}#{home}/.tmux.conf#{Tty.reset} -> #{home}/Coding/dotfiles/tmux.conf"
-puts "#{Tty.magenta}#{home}/.rvmrc#{Tty.reset} -> #{home}/Coding/dotfiles/rvmrc"
-puts "#{Tty.magenta}#{home}/.vimrc#{Tty.reset} -> #{home}/Coding/dotfiles/vimrc"
-puts "#{Tty.magenta}#{home}/.zlogin#{Tty.reset} -> #{home}/Coding/dotfiles/zlogin"
-puts "#{Tty.magenta}#{home}/.zlogout#{Tty.reset} -> #{home}/Coding/dotfiles/zlogout"
-puts "#{Tty.magenta}#{home}/.zprofile#{Tty.reset} -> #{home}/Coding/dotfiles/zprofile"
-puts "#{Tty.magenta}#{home}/.zpreztorc#{Tty.reset} -> #{home}/Coding/dotfiles/zpreztorc"
-puts "#{Tty.magenta}#{home}/.zshenv#{Tty.reset} -> #{home}/Coding/dotfiles/zshenv"
-puts "#{Tty.magenta}#{home}/.zshrc#{Tty.reset} -> #{home}/Coding/dotfiles/zshrc"
+ohai "This script will install dotfiles from https://github.com/Soliah/dotfiles"
 
 if STDIN.tty?
   puts
@@ -104,27 +76,27 @@ end
 
 Dir.mkdir("#{home}/Coding") unless Dir.exists? "#{home}/Coding"
 
-abort "#{home}/Coding/dotfiles directory exists." if Dir.exists? "#{home}/Coding/dotfiles"
-
-Dir.chdir("#{home}/Coding") do
-  ohai "Cloning..."
-  system "#{which('git')} clone --recursive https://github.com/Soliah/dotfiles"
-  puts "\n"
+if !Dir.exists? "#{home}/Coding/dotfiles"
+  Dir.chdir("#{home}/Coding") do
+    ohai "Cloning..."
+    system "#{which('git')} clone --recursive https://github.com/Soliah/dotfiles"
+    puts "\n"
+  end
 end
 
 Dir.chdir("#{home}/Coding/dotfiles") do
   ohai "Symlinking..."
-  Dir.glob("*").each do |file|
-    if file != "README.md"
+  (Dir.glob("*").concat(%w{ vim ssh })).each do |file|
+    if file != "README.md" && file != "go.rb"
+      if File.exists?("#{home}/.#{file}")
+        File.unlink("#{home}/.#{file}")
+      end
+
       puts "Symlinking #{file} to #{home}/.#{file}"
       File.symlink("#{home}/Coding/dotfiles/#{file}", "#{home}/.#{file}")
     end
   end
   puts "\n"
 end
-
-ohai "Building native extensions for Command-T vim plugin..."
-system "/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby #{home}Coding/dotfiles/vim/bundle/vim-command-t/ruby/command-t/extconf.rb"
-system "#{which('make')} #{home}Coding/dotfiles/vim/bundle/vim-command-t/ruby/command-t/make"
 
 ohai "Installation successful!"
