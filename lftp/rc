@@ -10,7 +10,7 @@ set xfer:log false
 
 # mirror settings
 set mirror:use-pget-n 10
-set mirror:parallel-transfer-count 1
+set mirror:parallel-transfer-count 2
 
 # pget settings
 set pget:default-n 10

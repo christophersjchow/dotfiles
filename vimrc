@@ -15,8 +15,11 @@ set history=50                               " Size of command history.
 set encoding=utf8                            " Always use unicode.
 set clipboard+=unnamed                       " Share the clipboard.
 set backspace=indent,eol,start               " Fix backspace.
-set nobackup                                 " No backups
+
+set nobackup                                 " Disable backups.
 set nowritebackup
+set noswapfile
+
 set notimeout                                " Fix lag in iTerm.
 set ttimeout
 set timeoutlen=50
@@ -67,6 +70,8 @@ nnoremap <leader>a :Ack
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>c<Bar> :Tabularize /,<CR>
+vmap <Leader>c<Bar> :Tabularize /,<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

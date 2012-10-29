@@ -1,5 +1,5 @@
 [alias]
-  s = "status -s"
+  s = "status -sb"
   l = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
   gl = log --oneline --decorate --stat --graph
   co = checkout
