@@ -5,7 +5,7 @@ project_name: ccap
 project_root: ~/Coding/ccap
 tabs:
   - delayed: be rake jobs:work
-  - spork: be spork
+  - tests: be spork
   - logs: tail -f log/development.log
   - terminal:
   - vim: vim

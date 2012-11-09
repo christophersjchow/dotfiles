@@ -184,7 +184,7 @@ if has("gui_running")
         macmenu &Tools.Make key=<nop>
     endif
 else
-    colorscheme Tomorrow-Night-Bright
+    colorscheme grb256
     set guifont=Monaco:h13            " Use a good font.
     set selection=exclusive           " Do not select the end of line.
 endif

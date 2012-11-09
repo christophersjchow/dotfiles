@@ -46,19 +46,12 @@
     path = vim/bundle/vim-html5
     url = https://github.com/othree/html5.vim.git
     ignore = dirty
-[submodule "vim/bundle/vim-railscasts-theme"]
-    path = vim/bundle/vim-railscasts-theme
-    url = https://github.com/jpo/vim-railscasts-theme.git
-    ignore = dirty
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/vim-nerdtree"]
 	path = vim/bundle/vim-nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/vim-colors-tomorrow"]
-	path = vim/bundle/vim-colors-tomorrow
-	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "zprezto"]
 	path = zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
@@ -95,3 +88,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-colors"]
+	path = vim/bundle/vim-colors
+	url = https://github.com/dandorman/vim-colors.git
