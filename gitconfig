@@ -17,7 +17,7 @@
   excludesfile = ~/.gitexclude
   whitespace = trailing-space,space-before-tab
   quotepath = false
-  autocrlf = input
+  autocrlf = false
   safecrlf = true
   editor = vim
 [color]
