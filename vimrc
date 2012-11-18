@@ -70,8 +70,8 @@ nnoremap <leader>a :Ack
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
-nmap <Leader>c<Bar> :Tabularize /,<CR>
-vmap <Leader>c<Bar> :Tabularize /,<CR>
+nmap <Leader>c, :Tabularize /,<CR>
+vmap <Leader>c, :Tabularize /,<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
