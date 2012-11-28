@@ -78,8 +78,12 @@ Dir.mkdir("#{home}/Coding") unless Dir.exists? "#{home}/Coding"
 
 if !Dir.exists? "#{home}/Coding/dotfiles"
   Dir.chdir("#{home}/Coding") do
-    ohai "Cloning..."
+    ohai "Cloning dotfiles..."
     system "#{which('git')} clone --recursive https://github.com/Soliah/dotfiles"
+
+    ohai "Cloning vundle..."
+    Dir.chdir("#{home}/Coding/dotfiles")
+    system "#{which('git')} clone --recursive https://github.com/gmarik/vundle.git vim/bundle"
     puts "\n"
   end
 end
