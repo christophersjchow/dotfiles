@@ -116,7 +116,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 " ------------------------------------------------------------------------------
 let mapleader = ","               " Use comma as leader.
 
-" set pastetoggle=<F5>              " Paste with sane indentation.
+set pastetoggle=<F5>              " Paste with sane indentation.
 
 " Do what Gary Bernhardt does for removing search results.
 function! MapCR()
@@ -139,7 +139,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Ack
-nnoremap <leader>a :Ack<space>
+nnoremap <leader>a :Ack!<space>
 
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
@@ -147,15 +147,16 @@ vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>c, :Tabularize /,<CR>
 vmap <Leader>c, :Tabularize /,<CR>
 
+" Indent Guides
+map <Leader>i :IndentGuidesToggle<CR>
+
 " Rainbow Parenthesis
 nmap <Leader>rp :RainbowParenthesesToggle<CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-map <Leader>t :CtrlP<CR>
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>p :CtrlPMRU<CR>
+let g:ctrlp_map = '<Leader>t'
 
 let g:ctrlp_user_command = {
 \ 'types': {
@@ -313,3 +314,67 @@ function! StripTrailingWhitespace()
         call winrestview(l:winview)
     endif
 endfunction
+
+" ------------------------------------------------------------------------------
+" Languages
+" ------------------------------------------------------------------------------
+
+" CoffeeScript
+
+aug ft_coffee
+    au!
+    au FileType coffee
+        \ setlocal
+            \ tabstop=2
+            \ softtabstop=2
+            \ shiftwidth=2
+aug end
+
+" CSS
+aug ft_css
+    au!
+    au BufNewFile,BufRead *.less setlocal filetype=less
+
+    " Use cc to change lines without borking the indentation.
+    au BufNewFile,BufRead *.css,*.less nnoremap <buffer> cc ddko
+
+    " Use <Leader>S to sort properties.
+    au BufNewFile,BufRead *.css,*.less
+        \ nnoremap <buffer> <LocalLeader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+    " Make {<CR> insert a pair of brackets in such a way that the cursor is
+    " correctly positioned inside of them and the following code doesn't get
+    " unfolded.
+    au BufNewFile,BufRead *.css,*.less
+        \ inoremap <buffer> {<CR> {}<left><CR>.<CR><esc>kA<bs><tab>
+aug end
+
+" Git
+aug ft_git
+    au!
+    au FileType git* setlocal
+        \ noexpandtab
+        \ tabstop=2
+        \ shiftwidth=2
+        \ nofoldenable
+aug end
+
+" Vagrant
+aug ft_vagrant
+    au!
+    au BufRead,BufNewFile Vagrantfile set filetype=ruby
+aug end
+
+" Vim
+aug ft_vim
+    au!
+    au FileType vim,help setlocal textwidth=80
+    au FileType vim setlocal foldmethod=marker colorcolumn=120
+aug end
+
+" Zsh
+aug ft_zsh
+    au!
+    au BufNewFile,BufRead zshecl*,prompt_*_setup setlocal filetype=zsh
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+aug end
