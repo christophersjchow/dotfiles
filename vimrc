@@ -11,6 +11,8 @@ command! W :w                                " Seriously, it's not like :W is bo
                                              " to anything anyway.
 set nocompatible                             " Turn off vi compatibility.
 set undolevels=1000                          " Large undo levels.
+set undofile                                 " Save undo tree.
+set undodir=/tmp                             " Undo tree directory.
 set history=50                               " Size of command history.
 set encoding=utf8                            " Always use unicode.
 set clipboard+=unnamed                       " Share the clipboard.
@@ -25,24 +27,96 @@ set ttimeout
 set timeoutlen=50
 set nomodeline
 
-if version > 7.2
-    set noundofile                           " Don't save undo tree.
-endif
-
 set spelllang=en_au                          " Set spell check language.
 
+" ------------------------------------------------------------------------------
+" Vundle
+" ------------------------------------------------------------------------------
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" ------------------------------------------------------------------------------
-" Run pathogen.
-" ------------------------------------------------------------------------------
-call pathogen#infect()
+" Self manage vundle.
+Bundle 'gmarik/vundle'
+
+" Language / syntax support.
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'bbommarito/vim-slim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'othree/html5.vim'
+Bundle 'claco/jasmine.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'itspriddle/vim-jquery'
+
+" Git
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+
+" Fuzzy file finder
+Bundle 'kien/ctrlp.vim'
+
+" Call ack from vim
+Bundle 'mileszs/ack.vim'
+
+" Surround text keybindings
+Bundle 'tpope/vim-surround'
+
+" Launch rspec tests from vim
+Bundle 'skalnik/vim-vroom'
+
+" Format tabular text (ie Cucumber)
+Bundle 'godlygeek/tabular'
+
+" Manage undos as a tree
+Bundle 'sjl/gundo.vim'
+
+" Commenting plugin
+Bundle 'tomtom/tcomment_vim'
+
+" Better status bar
+Bundle 'Lokaltog/vim-powerline'
+
+" Auto detect indentation settings
+Bundle 'Raimondi/YAIFA'
+
+" Kill buffers without closing windows
+Bundle 'vim-scripts/bufkill.vim'
+
+" Maintain widths of windows
+Bundle 'roman/golden-ratio'
+
+" Indent pasted lines properly. No more :set paste.
+Bundle 'sickill/vim-pasta'
+
+" Automatically closes quotes, parenthesis, brackets, etc.
+Bundle 'Raimondi/delimitMate'
+
+" Indentation-based text objects.
+Bundle 'michaeljsmith/vim-indent-object'
+
+" Displays indent levels.
+Bundle 'nathanaelkane/vim-indent-guides'
+
+" Configures % to match more than just single characters.
+Bundle 'vim-scripts/matchit.zip'
+
+" Tab completion
+Bundle 'ervandew/supertab'
+
+" Themes
+Bundle 'dandorman/vim-colors'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " ------------------------------------------------------------------------------
 " Binds
 " ------------------------------------------------------------------------------
 let mapleader = ","               " Use comma as leader.
 
-set pastetoggle=<F5>              " Paste with sane indentation.
+" set pastetoggle=<F5>              " Paste with sane indentation.
 
 " Do what Gary Bernhardt does for removing search results.
 function! MapCR()
@@ -62,10 +136,10 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " Strip all trailing whistpace.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Ack
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack<space>
 
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
@@ -73,21 +147,8 @@ vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>c, :Tabularize /,<CR>
 vmap <Leader>c, :Tabularize /,<CR>
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rename current file interactively. Stolen from @garybernhardt on Github.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader><leader>r :call RenameFile()<cr>
-
+" Rainbow Parenthesis
+nmap <Leader>rp :RainbowParenthesesToggle<CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -153,16 +214,7 @@ filetype plugin indent on         " Load syntax files for better indenting.
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
-
-" Set color for line highlight.
-hi CursorLine cterm=NONE ctermbg=black
-
-" Custom colours for completion menu.
-hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=lightgray
-hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-
-if has("gui_running")
+if has('gui_running')
     set guioptions-=m             " Disable menu bar.
     set guioptions-=T             " Disable the tool bar bar.
     set guioptions-=l             " Disable left scrollbar.
@@ -172,8 +224,8 @@ if has("gui_running")
 
     " If MacVim do some specific things.
     if has('gui_macvim')
+        set guifont=Monaco\ for\ Powerline:h16
         colorscheme solarized             " Color scheme.
-        set guifont=Monaco:h16            " Use Monaco font on OSX.
         set lines=52                      " Window size.
         set columns=165
         set vb                            " Disable the audible bell.
@@ -185,7 +237,6 @@ if has("gui_running")
     endif
 else
     colorscheme grb256
-    set guifont=Monaco:h13            " Use a good font.
     set selection=exclusive           " Do not select the end of line.
 endif
 
@@ -195,32 +246,70 @@ if has('mouse')
     set mousehide                 " Hide mouse while typing.
 endif
 
+" ------------------------------------------------------------------------------
+" Status Line
+" ------------------------------------------------------------------------------
+
+" Always show status.
+set laststatus=2
+
+" Disable status line fill chars.
+set fillchars+=stl:\ ,stlnc:\ " Space.
+
+" Highlight the current line in the current window.
+aug cursorline
+    au!
+    au BufEnter * set cursorline
+    au BufLeave * set nocursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+aug end
 
 " ------------------------------------------------------------------------------
-" Auto Commands
+" Powerline
 " ------------------------------------------------------------------------------
-if has("autocmd")
-    " Jump to the last known position when reopening a file.
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     exe "normal! g'\"" |
-        \ endif
+" Use short path.
+let g:Powerline_stl_path_style = 'filename'
 
-    " Enable soft-wrapping for text files.
-    au FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
-    " Reduce tab length for certain files types.
-    au FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType sass setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType haml setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType cucumber setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType coffee setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType gitconfig setlocal expandtab shiftwidth=2 tabstop=2
-    au FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
+" ------------------------------------------------------------------------------
+" Gundo
+" ------------------------------------------------------------------------------
 
-    au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+nnoremap <Leader>U :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
 
-    au BufNewFile,BufRead *.xrl,*.yrl,*.app.src,rebar.config,reltool.config,app.config,.erlang setfiletype erlang
-endif
+" ------------------------------------------------------------------------------
+" Rainbow Parenthesis
+" ------------------------------------------------------------------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
-hi def link rubyRspec Function
+" ------------------------------------------------------------------------------
+" Indent Guides
+" ------------------------------------------------------------------------------
+
+" Auto calculate guide colors.
+let g:indent_guides_auto_colors = 1
+
+" Use skinny guides.
+let g:indent_guides_guide_size = 1
+
+" Indent from level 2.
+let g:indent_guides_start_level = 3
+
+" ------------------------------------------------------------------------------
+" Functions
+" ------------------------------------------------------------------------------
+
+" Strip Trailing Whitespace
+function! StripTrailingWhitespace()
+    if !&binary && &modifiable && &filetype != 'diff'
+        let l:winview = winsaveview()
+        %s/\s\+$//e
+        let @/=''
+        call winrestview(l:winview)
+    endif
+endfunction
