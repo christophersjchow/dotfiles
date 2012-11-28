@@ -107,6 +107,9 @@ Bundle 'vim-scripts/matchit.zip'
 " Tab completion
 Bundle 'ervandew/supertab'
 
+" Rename buffers/files
+Bundle 'henrik/rename.vim'
+
 " Themes
 Bundle 'dandorman/vim-colors'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -140,6 +143,9 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Ack
 nnoremap <leader>a :Ack!<space>
+
+" Rename buffer
+nnoremap <Leader><Leader>r :Rename!<space>
 
 " Tabular
 nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
