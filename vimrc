@@ -15,7 +15,6 @@ set undofile                                 " Save undo tree.
 set undodir=/tmp                             " Undo tree directory.
 set history=50                               " Size of command history.
 set encoding=utf8                            " Always use unicode.
-set clipboard+=unnamed                       " Share the clipboard.
 set backspace=indent,eol,start               " Fix backspace.
 
 set nobackup                                 " Disable backups.
@@ -65,14 +64,14 @@ Bundle 'mileszs/ack.vim'
 " Surround text keybindings
 Bundle 'tpope/vim-surround'
 
+" Auto insert end structures
+Bundle 'tpope/vim-endwise'
+
 " Launch rspec tests from vim
 Bundle 'skalnik/vim-vroom'
 
 " Format tabular text (ie Cucumber)
 Bundle 'godlygeek/tabular'
-
-" Manage undos as a tree
-Bundle 'sjl/gundo.vim'
 
 " Commenting plugin
 Bundle 'tomtom/tcomment_vim'
@@ -91,9 +90,6 @@ Bundle 'roman/golden-ratio'
 
 " Indent pasted lines properly. No more :set paste.
 Bundle 'sickill/vim-pasta'
-
-" Automatically closes quotes, parenthesis, brackets, etc.
-Bundle 'Raimondi/delimitMate'
 
 " Indentation-based text objects.
 Bundle 'michaeljsmith/vim-indent-object'
@@ -148,16 +144,21 @@ nnoremap <leader>a :Ack!<space>
 nnoremap <Leader><Leader>r :Rename!<space>
 
 " Tabular
-nmap <Leader>c<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>c<Bar> :Tabularize /<Bar><CR>
-nmap <Leader>c, :Tabularize /,<CR>
-vmap <Leader>c, :Tabularize /,<CR>
+nmap <Leader><Leader>c<Bar> :Tabularize /<Bar><CR>
+vmap <Leader><Leader>c<Bar> :Tabularize /<Bar><CR>
+nmap <Leader><Leader>c, :Tabularize /,<CR>
+vmap <Leader><Leader>c, :Tabularize /,<CR>
 
 " Indent Guides
-map <Leader>i :IndentGuidesToggle<CR>
+map <Leader>ig :IndentGuidesToggle<CR>
 
-" Rainbow Parenthesis
-nmap <Leader>rp :RainbowParenthesesToggle<CR>
+" Fugitive Status
+map <Leader>s :Gstatus<cr>
+map <Leader>c :Gcommit<cr>
+
+" Remap esc
+imap jj <ESC>
+
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -212,11 +213,11 @@ set cursorline                    " Highlight the current line.
 set number                        " Show line numbers.
 set cmdheight=2                   " Make command line height to 2 lines.
 set cf                            " Enable error jumping.
+set colorcolumn=121               " Show the column boundary.
 syntax on                         " Enable syntax highlighting.
 filetype on                       " Detect file type.
 filetype indent on                " Enable file indenting.
 filetype plugin indent on         " Load syntax files for better indenting.
-
 
 " ------------------------------------------------------------------------------
 " User Interface
@@ -273,18 +274,10 @@ aug cursorline
 aug end
 
 " ------------------------------------------------------------------------------
-" Powerline
+" Ack
 " ------------------------------------------------------------------------------
-" Use short path.
-let g:Powerline_stl_path_style = 'filename'
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
-
-" ------------------------------------------------------------------------------
-" Gundo
-" ------------------------------------------------------------------------------
-
-nnoremap <Leader>U :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
 
 " ------------------------------------------------------------------------------
 " Rainbow Parenthesis
@@ -293,6 +286,13 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+
+" ------------------------------------------------------------------------------
+" Column Color
+" ------------------------------------------------------------------------------
+highlight ColorColumn ctermbg=8
+
 
 " ------------------------------------------------------------------------------
 " Indent Guides
@@ -336,6 +336,12 @@ aug ft_coffee
             \ shiftwidth=2
 aug end
 
+" Markdown
+aug ft_markdown
+    au!
+    au BufNewFile,BufRead *.m*down,*.md setlocal filetype=markdown textwidth=120 colorcolumn=121
+aug end
+
 " CSS
 aug ft_css
     au!
@@ -363,6 +369,7 @@ aug ft_git
         \ tabstop=2
         \ shiftwidth=2
         \ nofoldenable
+        \ textwidth=72
 aug end
 
 " Vagrant
@@ -374,8 +381,14 @@ aug end
 " Vim
 aug ft_vim
     au!
-    au FileType vim,help setlocal textwidth=80
-    au FileType vim setlocal foldmethod=marker colorcolumn=120
+    au FileType vim,help setlocal textwidth=120
+    au FileType vim setlocal foldmethod=marker colorcolumn=121
+aug end
+
+" Ruby
+aug ft_ruby
+    au!
+    au FileType ruby setlocal colorcolumn=121 textwidth=120
 aug end
 
 " Zsh
