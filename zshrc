@@ -4,8 +4,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Aliases
-alias g="git"
-alias v="Vim"
-alias t="tmux"
-alias c="cd"
-alias be="bundle exec"
+alias g='git'
+alias v='Vim'
+alias t='tmux'
+alias c='cd'
+alias z='zeus'
+alias be='bundle exec'
