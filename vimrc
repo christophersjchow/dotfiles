@@ -68,7 +68,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 
 " Launch rspec tests from vim
-Bundle 'skalnik/vim-vroom'
+Bundle 'carlwoodward/vim-vroom'
 
 " Format tabular text (ie Cucumber)
 Bundle 'godlygeek/tabular'
