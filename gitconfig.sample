@@ -10,8 +10,8 @@
   pushsub = submodule foreach "git push origin master"
   pullsub = submodule foreach "git pull origin master"
 [user]
-  name = Christopher Chow
-  email = chris@chowie.net
+  name = User
+  email = user@example.com
 [core]
   legacyheaders = false
   excludesfile = ~/.gitexclude
@@ -32,8 +32,8 @@
 [rerere]
   enabled = true
 [difftool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = true

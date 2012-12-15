@@ -25,6 +25,7 @@ set notimeout                                " Fix lag in iTerm.
 set ttimeout
 set timeoutlen=50
 set nomodeline
+set selection=inclusive                      " Select to the end of line.
 
 set spelllang=en_au                          " Set spell check language.
 
@@ -50,6 +51,7 @@ Bundle 'othree/html5.vim'
 Bundle 'claco/jasmine.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'itspriddle/vim-jquery'
+Bundle 'vim-scripts/VimClojure'
 
 " Git
 Bundle 'tpope/vim-git'
@@ -202,7 +204,7 @@ set list
 " ------------------------------------------------------------------------------
 set shortmess=aIoO                " Show short messages, no intro.
 set ttyfast                       " Fast scrolling when on a decent connection.
-set wrap                          " Wrap text.
+set nowrap                        " Wrap text.
 set showcmd                       " Show last command.
 set ruler                         " Show the cursor position.
 set relativenumber                " Show how far a line is from current line.
@@ -213,7 +215,6 @@ set cursorline                    " Highlight the current line.
 set number                        " Show line numbers.
 set cmdheight=2                   " Make command line height to 2 lines.
 set cf                            " Enable error jumping.
-set colorcolumn=121               " Show the column boundary.
 syntax on                         " Enable syntax highlighting.
 filetype on                       " Detect file type.
 filetype indent on                " Enable file indenting.
@@ -245,7 +246,6 @@ if has('gui_running')
     endif
 else
     colorscheme grb256
-    set selection=exclusive           " Do not select the end of line.
 endif
 
 if has('mouse')
@@ -291,8 +291,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " ------------------------------------------------------------------------------
 " Column Color
 " ------------------------------------------------------------------------------
-highlight ColorColumn ctermbg=8
-
+highlight ColorColumn ctermbg=236 guibg=#262D51
 
 " ------------------------------------------------------------------------------
 " Indent Guides
@@ -376,6 +375,12 @@ aug end
 aug ft_vagrant
     au!
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
+aug end
+
+" Cucumber
+aug ft_cucumber
+    au!
+    au FileType cucumber
 aug end
 
 " Vim
