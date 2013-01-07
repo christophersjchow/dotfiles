@@ -7,7 +7,7 @@ Dir.chdir File.dirname(__FILE__) do
   Dir.glob('**').each do |file|
     unless %w(go.rb README.md gitconfig.sample).include?(file)
       puts "Symlinking #{file} to #{File.dirname(__FILE__)}/#{file}"
-      FileUtils.ln_s(File.absolute_path(File.join(File.dirname(__FILE__), file)),
+      FileUtils.ln_s(File.expand_path(File.join(File.dirname(__FILE__), file)),
                      "#{ENV["HOME"]}/.#{file}", :force => true)
     end
   end
