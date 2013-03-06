@@ -44,7 +44,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'skalnik/vim-vroom'
+Bundle 'carlwoodward/vim-vroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -93,7 +93,6 @@ imap jk <ESC>
 " vroom
 " ------------------------------------------------------------------------------
 let g:vroom_cucumber_path = 'cucumber '
-let g:vroom_spec_command = '`[ -e .zeus.sock ] && echo zeus` rspec '
 
 " ------------------------------------------------------------------------------
 " CtrlP
