@@ -10,3 +10,5 @@ alias t='tmux'
 alias c='cd'
 alias z='zeus'
 alias be='bundle exec'
+
+eval "$(hub alias -s)"
