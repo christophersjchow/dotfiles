@@ -52,6 +52,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'ervandew/supertab'
 Bundle 'henrik/rename.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tsaleh/vim-matchit'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
@@ -71,7 +73,7 @@ map <Down> <Nop>
 nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 
 " Ack
-nnoremap <leader>a :Ack!<space>
+nnoremap <leader>a :Ack<space>
 
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>
@@ -83,11 +85,13 @@ nmap <Leader><Leader>c, :Tabularize /,<CR>
 vmap <Leader><Leader>c, :Tabularize /,<CR>
 
 " Fugitive Status
-map <Leader>s :Gstatus<cr>
+map <Leader>s :Gstatus<CR>
 
 " Remap esc
 imap jj <ESC>
 imap jk <ESC>
+
+nmap <Leader>n :nohlsearch<CR>
 
 " ------------------------------------------------------------------------------
 " vroom
