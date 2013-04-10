@@ -44,7 +44,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'carlwoodward/vim-vroom'
+Bundle 'skalnik/vim-vroom'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -92,11 +92,6 @@ imap jj <ESC>
 imap jk <ESC>
 
 nmap <Leader>n :nohlsearch<CR>
-
-" ------------------------------------------------------------------------------
-" vroom
-" ------------------------------------------------------------------------------
-let g:vroom_cucumber_path = 'cucumber '
 
 " ------------------------------------------------------------------------------
 " CtrlP
