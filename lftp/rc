@@ -17,3 +17,5 @@ set pget:default-n 10
 
 # aliases
 alias pget "pget -c"
+
+set ssl:verify-certificate no
