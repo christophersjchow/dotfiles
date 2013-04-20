@@ -84,6 +84,9 @@ vmap <Leader><Leader>c<Bar> :Tabularize /<Bar><CR>
 nmap <Leader><Leader>c, :Tabularize /,<CR>
 vmap <Leader><Leader>c, :Tabularize /,<CR>
 
+" Project Notes
+map <Leader>pn :sp ~/Dropbox/Notes.md<CR>
+
 " Fugitive Status
 map <Leader>s :Gstatus<CR>
 
@@ -92,6 +95,18 @@ imap jj <ESC>
 imap jk <ESC>
 
 nmap <Leader>n :nohlsearch<CR>
+
+" Save and run tests in Ruby
+
+au FileType ruby nmap <Leader>r :wa<CR>:VroomRunTestFile<CR>
+au FileType ruby nmap <Leader>R :wa<CR>:VroomRunNearestTest<CR>
+au FileType ruby imap <Leader>r <ESC>:wa<CR>:VroomRunTestFile<CR>
+au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
+
+" ------------------------------------------------------------------------------
+" vroom
+" ------------------------------------------------------------------------------
+let g:vroom_map_keys = 0
 
 " ------------------------------------------------------------------------------
 " CtrlP
