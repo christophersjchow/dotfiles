@@ -69,9 +69,6 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-" Strip all trailing whistpace.
-nnoremap <leader>W :call StripTrailingWhitespace()<CR>
-
 " Ack
 nnoremap <leader>a :Ack<space>
 
@@ -236,3 +233,4 @@ function! StripTrailingWhitespace()
         call winrestview(l:winview)
     endif
 endfunction
+nnoremap <leader>W :call StripTrailingWhitespace()<CR>
