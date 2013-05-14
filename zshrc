@@ -17,5 +17,6 @@ alias t='tmux'
 alias c='cd'
 alias z='zeus'
 alias be='bundle exec'
+alias psql.server='pg_ctl -D /usr/local/var/postgres'
 
 eval "$(hub alias -s)"
