@@ -11,4 +11,6 @@ Dir.chdir File.dirname(__FILE__) do
                      "#{ENV["HOME"]}/.#{file}", :force => true)
     end
   end
+
+  %x[git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle]
 end
