@@ -58,6 +58,7 @@ Bundle 'tsaleh/vim-matchit'
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'chriskempson/base16-vim'
+Bundle 'Solarized'
 
 " ------------------------------------------------------------------------------
 " Binds
@@ -162,6 +163,9 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
+colorscheme base16-tomorrow
+set background=dark
+
 if has('gui_running')
     set guioptions-=m             " Disable menu bar.
     set guioptions-=T             " Disable the tool bar bar.
@@ -171,21 +175,10 @@ if has('gui_running')
     set guioptions-=a             " Do not auto copy selection to clipboard.
 
     " If MacVim do some specific things.
-    if has('gui_macvim')
-        set guifont=Monaco\ for\ Powerline:h16
-        colorscheme solarized             " Color scheme.
-        set lines=52                      " Window size.
-        set columns=165
-        set vb                            " Disable the audible bell.
-
-        " Remove some shortcuts defined in MacVim
-        macmenu &File.New\ Tab key=<D-S-t>
-        macmenu &File.Print key=<nop>
-        macmenu &Tools.Make key=<nop>
-    endif
-else
-    colorscheme base16-tomorrow
-    set background=dark
+    set guifont=Source\ Code\ Pro:h16
+    set lines=52                      " Window size.
+    set columns=165
+    set vb                            " Disable the audible bell.
 endif
 
 if has('mouse')
