@@ -43,9 +43,10 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fugitive'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'skalnik/vim-vroom'
-Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'godlygeek/tabular'
@@ -105,6 +106,7 @@ au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
 " vroom
 " ------------------------------------------------------------------------------
 let g:vroom_map_keys = 0
+let g:vroom_use_dispatch = 0
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -212,6 +214,19 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
+
+" When not in a Rails project, vim-rails doesn't highlight
+" RSpec files. Do it manually.
+if !exists(":Rails!")
+  function! SyntaxForRspec()
+    syn keyword rubyRspec describe context it its specify shared_context shared_examples_for it_should_behave_like it_behaves_like before after around subject fixtures controller_name helper_name scenario feature background
+    syn match rubyRspec '\<let\>!\='
+    syn keyword rubyRspec violated pending expect double mock mock_model stub_model
+    syn match rubyRspec '\.\@<!\<stub\>!\@!'
+    highlight def link rubyRspec Function
+  endfunction
+  au BufNewFile,BufRead *_spec.rb call SyntaxForRspec()
+endif
 
 " ------------------------------------------------------------------------------
 " Functions
