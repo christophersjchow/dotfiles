@@ -74,8 +74,5 @@ fi
 # Load rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Load hub
-if which hub > /dev/null; then eval "$(hub alias -s)"; fi
-
 # Load tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
