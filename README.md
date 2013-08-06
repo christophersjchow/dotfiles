@@ -18,8 +18,7 @@ The following assumptions are made:
 **Backup your existing dotfiles first.**
 
 1. Clone the repo `git clone --recursive https://github.com/Soliah/dotfiles.git`
-2. Clone vundle `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
-3. Run `ruby go.rb`
+2. Run `ruby go.rb`
 
 ## License
 
