@@ -19,12 +19,14 @@ The following assumptions are made:
 
 1. Clone the repo `git clone --recursive https://github.com/Soliah/dotfiles.git`
 2. Run `ruby go.rb`
+3. Import the base-16 iTerm2 colour scheme into iTerm2.
+4. Launch vim, ignoring any errors, and run `:BundleInstall`.
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Christopher Chow
+Copyright (c) 2013 Christopher Chow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
