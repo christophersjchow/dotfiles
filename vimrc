@@ -56,6 +56,8 @@ Bundle 'ervandew/supertab'
 Bundle 'henrik/rename.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'noprompt/vim-yardoc'
+Bundle 'bling/vim-airline'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
