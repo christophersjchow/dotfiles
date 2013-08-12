@@ -28,6 +28,7 @@ set nomodeline
 set selection=inclusive                      " Select to the end of line.
 
 set spelllang=en_au                          " Set spell check language.
+set tags+=tags                               " Enable tags.
 
 " ------------------------------------------------------------------------------
 " Vundle
@@ -52,17 +53,16 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'ervandew/supertab'
 Bundle 'henrik/rename.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'bling/vim-airline'
+Bundle 'Valloric/YouCompleteMe'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'chriskempson/base16-vim'
-Bundle 'Solarized'
 
 " ------------------------------------------------------------------------------
 " Binds
