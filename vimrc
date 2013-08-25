@@ -162,6 +162,7 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
+let base16colorspace=256          " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 set background=dark
 
