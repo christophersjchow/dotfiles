@@ -58,7 +58,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'bling/vim-airline'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'ervandew/supertab'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
