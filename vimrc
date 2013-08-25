@@ -59,6 +59,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
@@ -79,12 +80,6 @@ nnoremap <leader>a :Ack<space>
 
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>
-
-" Tabular
-nmap <Leader><Leader>c<Bar> :Tabularize /<Bar><CR>
-vmap <Leader><Leader>c<Bar> :Tabularize /<Bar><CR>
-nmap <Leader><Leader>c, :Tabularize /,<CR>
-vmap <Leader><Leader>c, :Tabularize /,<CR>
 
 " Project Notes
 map <Leader>pn :sp ~/Dropbox/Notes.md<CR>
@@ -157,7 +152,6 @@ set ruler                         " Show the cursor position.
 set hidden                        " Allow hidden buffers.
 set showmatch                     " Show matching parenthesis.
 set matchpairs+=<:>               " Pairs to match.
-set cmdheight=2                   " Make command line height to 2 lines.
 set cf                            " Enable error jumping.
 syntax on                         " Enable syntax highlighting.
 filetype on                       " Detect file type.
