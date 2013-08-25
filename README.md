@@ -13,6 +13,14 @@ The following assumptions are made:
 - Latest version of vim is installed from homebrew
 - User shell is changed to the homebrew version `/usr/local/bin/zsh`
 
+## Base16 Colours
+
+I use the [base16](http://chriskempson.github.io/base16/) theme tomorrow dark.
+Make sure to load the iTerm2 colour pallete from `~/.colours/base16-iterm2`.
+
+If you wish to use a different colour, simply change the `colourscheme` in `~/.vimrc` and
+the colourspace script loaded in `~/.zshrc.`
+
 ## Installation
 
 **Backup your existing dotfiles first.**
