@@ -111,13 +111,8 @@ let g:vroom_use_dispatch = 0
 " ------------------------------------------------------------------------------
 let g:ctrlp_map = '<Leader>t'
 
-let g:ctrlp_user_command = {
-\ 'types': {
-    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
-    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-\ 'fallback': 'find . -type f | egrep "^\.[\/.]\.(git/|hg|svn/|gitmodules|DS_Store)"'
-\ }
+
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " ------------------------------------------------------------------------------
 " Search and Replace
