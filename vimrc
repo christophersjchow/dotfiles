@@ -50,7 +50,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'henrik/rename.vim'
@@ -75,8 +75,8 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-" Ack
-nnoremap <leader>a :Ack<space>
+" Ag
+nnoremap <leader>a :Ag<space>
 
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>
@@ -198,11 +198,6 @@ set laststatus=2
 set fillchars+=stl:\ ,stlnc:\ " Space.
 
 " ------------------------------------------------------------------------------
-" Ack
-" ------------------------------------------------------------------------------
-let g:ackprg = "ag --nogroup --nocolor --column"
-
-" ------------------------------------------------------------------------------
 " Rainbow Parenthesis
 " ------------------------------------------------------------------------------
 au VimEnter * RainbowParenthesesToggle
@@ -212,6 +207,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
+au FileType haml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au FileType scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " When not in a Rails project, vim-rails doesn't highlight
 " RSpec files. Do it manually.
