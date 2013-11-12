@@ -49,8 +49,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rake'
 Bundle 'mustache/vim-mode'
 Bundle 'heartsentwined/vim-emblem'
-
 Bundle 'kchmck/vim-coffee-script'
+
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
@@ -61,8 +61,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'bling/vim-airline'
-Bundle 'ervandew/supertab'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'dyng/auto_mkdir'
 
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
