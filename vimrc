@@ -124,6 +124,12 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 " ------------------------------------------------------------------------------
+" rails.vim
+" ------------------------------------------------------------------------------
+" Set ctags command so that tags are supported by YouCompleteMe
+let g:rails_ctags_arguments = ['--languages=-javascript', '--fields=+l', '--exclude=.git', '--exclude=log']
+
+" ------------------------------------------------------------------------------
 " Search and Replace
 " ------------------------------------------------------------------------------
 set incsearch                     " Show partial matches as search is entered.
