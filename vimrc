@@ -114,9 +114,14 @@ let g:vroom_use_dispatch = 0
 " CtrlP
 " ------------------------------------------------------------------------------
 let g:ctrlp_map = '<Leader>t'
-
-
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" ------------------------------------------------------------------------------
+" YouCompleteMe
+" ------------------------------------------------------------------------------
+" Use tags files.
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 
 " ------------------------------------------------------------------------------
 " Search and Replace
