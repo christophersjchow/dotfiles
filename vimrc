@@ -224,6 +224,8 @@ au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
 au FileType haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
+au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
+
 " When not in a Rails project, vim-rails doesn't highlight
 " RSpec files. Do it manually.
 if !exists(":Rails!")
