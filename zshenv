@@ -73,6 +73,7 @@ if [[ -d "$TMPDIR" ]]; then
 fi
 
 # Load rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Load direnv
