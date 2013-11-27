@@ -15,7 +15,7 @@ source "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh"
 
 # Aliases
 alias g='git'
-alias v='Vim'
+alias v='vim'
 alias t='tmux'
 alias c='cd'
 alias z='zeus'
