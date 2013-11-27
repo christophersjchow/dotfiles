@@ -3,3 +3,4 @@ Icon?
 Thumbs.db
 *.swp
 *.swo
+.envrc
