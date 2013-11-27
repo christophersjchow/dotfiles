@@ -73,8 +73,13 @@ if [[ -d "$TMPDIR" ]]; then
 fi
 
 # Load rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+
+  if [ -d /usr/local/var/rbenv ]; then
+    export RBENV_ROOT=/usr/local/var/rbenv;
+  fi
+fi
 
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
