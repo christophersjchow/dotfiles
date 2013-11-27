@@ -121,7 +121,12 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " ------------------------------------------------------------------------------
 " Use tags files.
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+" Use identifiers from syntax files.
 let g:ycm_seed_identifiers_with_syntax = 1
+
+" Use strings for completion too.
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " ------------------------------------------------------------------------------
 " rails.vim
