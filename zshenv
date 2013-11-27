@@ -74,3 +74,6 @@ fi
 
 # Load rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Load direnv
+eval "$(direnv hook zsh)"
