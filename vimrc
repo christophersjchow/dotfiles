@@ -50,6 +50,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'mustache/vim-mode'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'jnwhiteh/vim-golang'
 
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
@@ -223,6 +224,8 @@ au Syntax * RainbowParenthesesLoadBraces
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
 au FileType haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab nolist
+au BufWritePre *.go Fmt
 
 au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
 
