@@ -51,6 +51,7 @@ Bundle 'mustache/vim-mode'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'hail2u/vim-css3-syntax'
 
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
@@ -110,6 +111,7 @@ au FileType ruby imap <Leader>R <ESC>:wa<CR>:VroomRunNearestTest<CR>
 " ------------------------------------------------------------------------------
 let g:vroom_map_keys = 0
 let g:vroom_use_dispatch = 0
+let g:vroom_use_spring = 1
 
 " ------------------------------------------------------------------------------
 " CtrlP
