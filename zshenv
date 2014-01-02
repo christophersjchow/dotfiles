@@ -81,5 +81,9 @@ if which rbenv > /dev/null; then
   fi
 fi
 
+# Load nvm
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
