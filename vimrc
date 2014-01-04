@@ -193,7 +193,7 @@ if has('gui_running')
     set guioptions-=a             " Do not auto copy selection to clipboard.
 
     " If MacVim do some specific things.
-    set guifont=Source\ Code\ Pro:h16
+    set guifont=Monaco:h16
     set lines=52                      " Window size.
     set columns=165
     set vb                            " Disable the audible bell.
