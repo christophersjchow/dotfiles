@@ -16,6 +16,7 @@ if [[ -s "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh" ]]; then
 fi
 
 # Aliases
+alias a='tmux attach -t'
 alias g='git'
 alias v='vim'
 alias t='tmux'

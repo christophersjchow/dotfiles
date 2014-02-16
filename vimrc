@@ -52,6 +52,7 @@ Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'elzr/vim-json'
 
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
@@ -230,6 +231,9 @@ au FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab nolist
 au BufWritePre *.go Fmt
 
 au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
+
+" Don't hide quotes in JSON.
+let g:vim_json_syntax_conceal = 0
 
 " When not in a Rails project, vim-rails doesn't highlight
 " RSpec files. Do it manually.
