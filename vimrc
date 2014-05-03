@@ -34,7 +34,7 @@ set tags+=tags                               " Enable tags.
 " Vundle
 " ------------------------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " Self manage vundle.
 Bundle 'gmarik/vundle'
@@ -61,7 +61,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'henrik/rename.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'noprompt/vim-yardoc'
 Bundle 'bling/vim-airline'
 Bundle 'christoomey/vim-tmux-navigator'
@@ -71,6 +70,8 @@ Bundle 'dyng/auto_mkdir'
 " Themes
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'chriskempson/base16-vim'
+
+call vundle#end()
 
 " ------------------------------------------------------------------------------
 " Binds
