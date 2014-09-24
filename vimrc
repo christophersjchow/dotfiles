@@ -98,6 +98,10 @@ map <Leader>s :Gstatus<CR>
 " Remap esc
 imap jj <ESC>
 imap jk <ESC>
+imap kj <ESC>
+
+" Use v to toggle visual mode.
+vno v <esc>
 
 nmap <Leader>n :nohlsearch<CR>
 
