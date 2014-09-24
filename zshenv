@@ -21,3 +21,5 @@ fi
 
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+
+export EDITOR=vim
