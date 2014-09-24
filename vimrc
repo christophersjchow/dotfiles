@@ -231,8 +231,9 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
-au FileType haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au FileType html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab nolist
+au FileType javascript,js setlocal tabstop=2 shiftwidth=2 softtabstop=2
 au BufWritePre *.go Fmt
 
 au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
