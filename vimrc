@@ -50,7 +50,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'mustache/vim-mode'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'elzr/vim-json'
 
@@ -234,7 +234,6 @@ au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 t
 au FileType html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab nolist
 au FileType javascript,js setlocal tabstop=2 shiftwidth=2 softtabstop=2
-au BufWritePre *.go Fmt
 
 au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
 
