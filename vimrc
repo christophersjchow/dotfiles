@@ -83,9 +83,6 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-" Ag
-nnoremap <leader>a :Ag<space>
-
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>
 
@@ -136,6 +133,16 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Use strings for completion too.
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+
+" ------------------------------------------------------------------------------
+" the_silver_searcher
+" ------------------------------------------------------------------------------
+" Ignore log files.
+let g:agprg="ag --column --smart-case --ignore \"*.log\""
+
+" Bind a key for quick searching
+nnoremap <leader>a :Ag<space>
 
 " ------------------------------------------------------------------------------
 " rails.vim
