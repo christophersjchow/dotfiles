@@ -53,6 +53,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'fatih/vim-go'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'elzr/vim-json'
+Bundle 'groenewege/vim-less'
 
 Bundle 'skalnik/vim-vroom'
 Bundle 'kien/ctrlp.vim'
