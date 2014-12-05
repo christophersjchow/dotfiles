@@ -37,40 +37,42 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " Self manage vundle.
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Language / syntax support.
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rake'
-Bundle 'mustache/vim-mode'
-Bundle 'heartsentwined/vim-emblem'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'fatih/vim-go'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'elzr/vim-json'
-Bundle 'groenewege/vim-less'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rake'
+Plugin 'dsawardekar/portkey'
+Plugin 'dsawardekar/ember.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'fatih/vim-go'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'elzr/vim-json'
+Plugin 'noprompt/vim-yardoc'
+Plugin 'othree/html5.vim'
+Plugin 'othree/yajs.vim'
 
-Bundle 'skalnik/vim-vroom'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'henrik/rename.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'noprompt/vim-yardoc'
-Bundle 'bling/vim-airline'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'dyng/auto_mkdir'
+Plugin 'skalnik/vim-vroom'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'henrik/rename.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'dyng/auto_mkdir'
 
 " Themes
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'chriskempson/base16-vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
@@ -239,7 +241,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
-au FileType html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au FileType handlebars,html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType go setlocal tabstop=2 shiftwidth=2 noexpandtab nolist
 au FileType javascript,js setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
