@@ -154,6 +154,11 @@ nnoremap <leader>a :Ag<space>
 let g:rails_ctags_arguments = ['--languages=-javascript', '--fields=+l', '--exclude=.git', '--exclude=log']
 
 " ------------------------------------------------------------------------------
+" vim-go
+" ------------------------------------------------------------------------------
+let g:go_fmt_command = "goimports"
+
+" ------------------------------------------------------------------------------
 " Search and Replace
 " ------------------------------------------------------------------------------
 set incsearch                     " Show partial matches as search is entered.
