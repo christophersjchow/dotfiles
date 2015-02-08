@@ -246,7 +246,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
-au FileType handlebars,html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au FileType html.handlebars,html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType go setlocal tabstop=2 shiftwidth=2 noexpandtab nolist
 au FileType javascript,js setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
