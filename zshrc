@@ -18,8 +18,7 @@ fi
 # Aliases
 alias a='tmux attach -t'
 alias g='git'
-alias v='nvim'
-alias vim='nvim'
+alias v='vim'
 alias t='tmux'
 alias c='cd'
 alias z='zeus'
