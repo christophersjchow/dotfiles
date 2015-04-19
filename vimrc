@@ -58,6 +58,8 @@ Plugin 'elzr/vim-json'
 Plugin 'noprompt/vim-yardoc'
 Plugin 'othree/html5.vim'
 Plugin 'othree/yajs.vim'
+Plugin 'chrisbra/csv.vim'
+Plugin 'ap/vim-css-color'
 
 Plugin 'skalnik/vim-vroom'
 Plugin 'kien/ctrlp.vim'
@@ -71,7 +73,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'dyng/auto_mkdir'
 
 " Themes
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'luochen1990/rainbow'
 Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
@@ -137,6 +139,15 @@ let g:ycm_seed_identifiers_with_syntax = 1
 " Use strings for completion too.
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" ------------------------------------------------------------------------------
+" Rainbow Parenthesis
+" ------------------------------------------------------------------------------
+let g:rainbow_active = 1
+
+" ------------------------------------------------------------------------------
+" Airline
+" ------------------------------------------------------------------------------
+let g:airline_powerline_fonts = 1
 
 " ------------------------------------------------------------------------------
 " the_silver_searcher
@@ -201,7 +212,7 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
-let base16colorspace=256          " Access colors present in 256 colorspace
+" let base16colorspace=256          " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 set background=dark
 
@@ -214,7 +225,7 @@ if has('gui_running')
     set guioptions-=a             " Do not auto copy selection to clipboard.
 
     " If MacVim do some specific things.
-    set guifont=Monaco:h16
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
     set lines=52                      " Window size.
     set columns=165
     set vb                            " Disable the audible bell.
@@ -235,14 +246,6 @@ set laststatus=2
 
 " Disable status line fill chars.
 set fillchars+=stl:\ ,stlnc:\ " Space.
-
-" ------------------------------------------------------------------------------
-" Rainbow Parenthesis
-" ------------------------------------------------------------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 au FileType coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 textwidth=120
