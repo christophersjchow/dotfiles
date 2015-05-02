@@ -33,50 +33,45 @@ set tags+=tags                               " Enable tags.
 " ------------------------------------------------------------------------------
 " Vundle
 " ------------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-" Self manage vundle.
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
 " Language / syntax support.
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rake'
-Plugin 'dsawardekar/portkey'
-Plugin 'dsawardekar/ember.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'fatih/vim-go'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'groenewege/vim-less'
-Plugin 'elzr/vim-json'
-Plugin 'noprompt/vim-yardoc'
-Plugin 'othree/html5.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'chrisbra/csv.vim'
-Plugin 'ap/vim-css-color'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rake'
+Plug 'dsawardekar/portkey'
+Plug 'dsawardekar/ember.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'kchmck/vim-coffee-script'
+Plug 'fatih/vim-go'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+Plug 'elzr/vim-json'
+Plug 'noprompt/vim-yardoc'
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'ap/vim-css-color'
 
-Plugin 'skalnik/vim-vroom'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'henrik/rename.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'dyng/auto_mkdir'
+Plug 'skalnik/vim-vroom'
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'godlygeek/tabular'
+Plug 'tomtom/tcomment_vim'
+Plug 'henrik/rename.vim'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'Valloric/YouCompleteMe'
+Plug 'dyng/auto_mkdir'
 
 " Themes
-Plugin 'luochen1990/rainbow'
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
-call vundle#end()
+call plug#end()
 
 " ------------------------------------------------------------------------------
 " Binds
@@ -138,11 +133,6 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Use strings for completion too.
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" ------------------------------------------------------------------------------
-" Rainbow Parenthesis
-" ------------------------------------------------------------------------------
-let g:rainbow_active = 1
 
 " ------------------------------------------------------------------------------
 " Airline
@@ -212,8 +202,10 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
-" let base16colorspace=256          " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
+let &t_8f="\e[38;2;%ld;%ld;%ldm"
+let &t_8b="\e[48;2;%ld;%ld;%ldm"
+set guicolors
 set background=dark
 
 if has('gui_running')
