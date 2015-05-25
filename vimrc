@@ -54,8 +54,9 @@ Plug 'elzr/vim-json'
 Plug 'noprompt/vim-yardoc'
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
-Plug 'chrisbra/csv.vim'
 Plug 'ap/vim-css-color'
+Plug 'lazywei/vim-matlab'
+Plug 'WolfgangMehner/matlab-support'
 
 Plug 'skalnik/vim-vroom'
 Plug 'kien/ctrlp.vim'
@@ -244,6 +245,8 @@ au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=121 t
 au FileType yaml,html.handlebars,html,haml,scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType go setlocal tabstop=2 shiftwidth=2 noexpandtab nolist
 au FileType javascript,js setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+autocmd BufEnter *.m compiler mlint
 
 au BufNewFile,BufRead Vagrantfile,Berksfile set filetype=ruby
 
