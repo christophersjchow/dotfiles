@@ -204,10 +204,13 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " User Interface
 " ------------------------------------------------------------------------------
 colorscheme base16-tomorrow
-let &t_8f="\e[38;2;%ld;%ld;%ldm"
-let &t_8b="\e[48;2;%ld;%ld;%ldm"
-set guicolors
 set background=dark
+
+if !has('gui_running')
+    let &t_8f="\e[38;2;%ld;%ld;%ldm"
+    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+    set guicolors
+endif
 
 if has('gui_running')
     set guioptions-=m             " Disable menu bar.
