@@ -22,5 +22,7 @@ fi
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
-# Setup docker environment variables from boot2docker
-if which boot2docker > /dev/null; then eval "$(boot2docker shellinit 2>/dev/null)"; fi
+# Setup docker environment variables docker-machine
+# if which docker-machine > /dev/null; then
+#   eval "$(docker-machine env dev)";
+# fi
