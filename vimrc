@@ -59,7 +59,7 @@ Plug 'lazywei/vim-matlab'
 Plug 'WolfgangMehner/matlab-support'
 
 Plug 'skalnik/vim-vroom'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
@@ -203,14 +203,9 @@ highlight ColorColumn ctermbg=236 guibg=#262D51
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
+let base16colorspace=256
 colorscheme base16-tomorrow
 set background=dark
-
-if !has('gui_running')
-    let &t_8f="\e[38;2;%ld;%ld;%ldm"
-    let &t_8b="\e[48;2;%ld;%ld;%ldm"
-    set guicolors
-endif
 
 if has('gui_running')
     set guioptions-=m             " Disable menu bar.
