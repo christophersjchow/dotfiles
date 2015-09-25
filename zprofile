@@ -5,6 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Set USER if it does not exist.
+# https://github.com/sorin-ionescu/prezto/pull/605
+if [ ! "$USER" ] ; then
+  export USER="${USER:-$(whoami)}"
+fi
+
 #
 # Browser
 #
