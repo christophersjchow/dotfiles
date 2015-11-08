@@ -19,3 +19,5 @@ set pget:default-n 10
 alias pget "pget -c"
 
 set ssl:verify-certificate no
+
+set sftp:connect-program "ssh -a -x -i /Users/Soliah/.ssh/home.key"

@@ -1,4 +1,6 @@
-vim/**
+vim/plugged
+vim/autoload
+vim/undo
 ssh/*
 lftp/bookmarks
 lftp/log
