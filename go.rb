@@ -1,16 +1,19 @@
 #!/usr/bin/env ruby
 
-require 'fileutils'
+require "fileutils"
+
+META_FILES = %w(go.rb README.md gitconfig.sample)
 
 Dir.chdir File.dirname(__FILE__) do
-  puts 'Symlinking...'
-  Dir.glob('**').each do |file|
-    unless %w(go.rb README.md gitconfig.sample).include?(file)
+  puts "Symlinking..."
+
+  Dir.glob("*").each do |file|
+    unless META_FILES.include?(file)
       puts "Symlinking #{file} to #{File.dirname(__FILE__)}/#{file}"
-      FileUtils.ln_s(File.expand_path(File.join(File.dirname(__FILE__), file)),
-                     "#{ENV["HOME"]}/.#{file}", :force => true)
+
+      FileUtils.ln_s(File.expand_path(File.join(File.dirname(__FILE__), file)), "#{ENV["HOME"]}/.#{file}", :force => true)
     end
   end
 
-  %x[git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle]
+  %x[curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim]
 end

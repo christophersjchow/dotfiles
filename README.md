@@ -7,7 +7,7 @@ These are my dotfiles.
 The following assumptions are made:
 
 - [iTerm2](http://www.iterm2.com/) is used instead of Terminal.app
-- [homebrew](http://mxcl.github.com/homebrew/) is used
+- [homebrew](http://brew.sh/) is used
 - Latest version of tmux is installed from homebrew
 - Latest version of zsh is installed from homebrew
 - Latest version of vim is installed from homebrew
@@ -28,13 +28,13 @@ the colourspace script loaded in `~/.zshrc.`
 1. Clone the repo `git clone --recursive https://github.com/Soliah/dotfiles.git`
 2. Run `ruby go.rb`
 3. Import the base-16 iTerm2 colour scheme into iTerm2.
-4. Launch vim, ignoring any errors, and run `:BundleInstall`.
+4. Launch vim, ignoring any errors, and run `:PlugInstall`.
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2013 Christopher Chow
+Copyright (c) 2015 Christopher Chow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
