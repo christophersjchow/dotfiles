@@ -98,7 +98,6 @@ set list                                     " Show invisible characters
 " From Janus, http://git.io/PLbAlw
 
 set listchars=""                             " Reset the listchars
-set listchars=tab:▸▸                         " Make tabs visible
 set listchars+=trail:•                       " Show trailing spaces as dots
 
 " The character to show in the last column when wrap is off and the line
