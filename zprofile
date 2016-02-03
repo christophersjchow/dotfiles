@@ -23,6 +23,11 @@ fi
 # Editors
 #
 
+# Enable 256 colors on Linux
+if [[ "$OSTYPE" == linux* ]]; then
+  export TERM="xterm-256color"
+fi
+
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
@@ -82,4 +87,3 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
-

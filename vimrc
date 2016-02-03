@@ -35,7 +35,9 @@ Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
 Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'Valloric/YouCompleteMe'
 Plug 'dyng/auto_mkdir'
 
