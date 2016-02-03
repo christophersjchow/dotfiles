@@ -15,6 +15,14 @@ if [[ -s "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh" ]]; then
   source "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh"
 fi
 
+# Load direnv
+if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+
+# Setup docker environment variables docker-machine
+# if which docker-machine > /dev/null; then
+#   eval "$(docker-machine env dev)";
+# fi
+
 # Aliases
 unalias gb
 
