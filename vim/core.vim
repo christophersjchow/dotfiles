@@ -128,3 +128,10 @@ endif
 set noerrorbells
 set novisualbell
 set t_vb=
+
+" -----------------------------
+" Languages
+" -----------------------------
+au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
+au FileType go setlocal noexpandtab nolist
+

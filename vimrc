@@ -27,8 +27,11 @@ Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'evanmiller/nginx-vim-syntax'
+Plug 'klen/python-mode'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'Soliah/vim-test'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
@@ -47,11 +50,8 @@ call plug#end()
 
 source ~/.vim/platform.vim
 source ~/.vim/core.vim
+source ~/.vim/plugins.vim
 source ~/.vim/mappings.vim
-
-for g:f in split(glob('~/.vim/plugins/*.vim'), '\n')
-  exe 'source' g:f
-endfor
 
 " Strip Trailing Whitespace
 function! StripTrailingWhitespace()
