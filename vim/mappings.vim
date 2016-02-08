@@ -28,6 +28,10 @@ inoremap kj <ESC>
 " Use v to toggle visual mode.
 vnoremap v <esc>
 
+if has('nvim')
+  tnoremap <Leader>e <C-\><C-n>
+end
+
 if !exists(':Ag')
   nnoremap <leader>f :Ag<space>
   nnoremap <silent> <leader>as :AgFromSearch<CR>

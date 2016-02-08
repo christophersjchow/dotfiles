@@ -81,3 +81,7 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 
 " vim-test
 let test#python#runner = 'tox'
+let test#strategy = 'neovim'
+
+" neomake
+autocmd! BufWritePost * Neomake
