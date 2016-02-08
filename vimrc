@@ -32,7 +32,6 @@ Plug 'klen/python-mode'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Soliah/vim-test'
-Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
