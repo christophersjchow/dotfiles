@@ -39,13 +39,3 @@ elseif has('gui_macvim')
     set guioptions-=a " Do not auto copy selection to clipboard.
   endif
 endif
-
-if has('macunix') || has('mac')
-  " Fix meta key for Mac
-  let c='a'
-  while c <= 'z'
-    exec "set <A-".c.">=\e".c
-    exec "imap \e".c." <A-".c.">"
-    let c = nr2char(1+char2nr(c))
-  endw
-endif
