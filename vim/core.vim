@@ -33,8 +33,9 @@ set history=100                              " Size of command history.
 set confirm                                  " Enable error files & error jumping.
 set autoread                                 " Automatically reload changes if detected
 
-set timeoutlen=200                           " Time to wait for a command (after leader for example).
-set ttimeout ttimeoutlen=60                  " Time to wait for a key sequence.
+set notimeout
+set ttimeout
+set timeoutlen=50
 
 set tags+=tags                               " Enable tags.
 
