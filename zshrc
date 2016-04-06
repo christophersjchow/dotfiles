@@ -37,5 +37,3 @@ alias s='spring'
 alias be='bundle exec'
 alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
 alias gt='go test -v -cover ./...'
-
-if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
