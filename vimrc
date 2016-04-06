@@ -28,7 +28,7 @@ Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'klen/python-mode'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Soliah/vim-test'
 Plug 'godlygeek/tabular'
