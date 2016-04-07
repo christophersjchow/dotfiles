@@ -70,7 +70,6 @@ let g:vim_json_syntax_conceal = 0                           " Don't hide quotes 
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag -g ""'                         " Use ag to obey ignore files
-let g:fzf_layout = {}                                       " Disable fzf-tmux
 
 " This is the default extra key bindings
 let g:fzf_action = {
