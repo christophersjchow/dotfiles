@@ -6,21 +6,6 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers f
 let g:ycm_complete_in_comments = 1                           " Also complete within comments
 let g:ycm_python_binary_path = '/usr/local/bin/python'
 
-" " ag.vim
-let g:ag_prg="ag --column --smart-case --ignore \"*.log\""   " Ignore log files.
-
-" CtrlP
-
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_max_height = 10                                   " Ensure max height isn't too large (for performance)
-let g:ctrlp_reuse_window = 'startify'                         " Fix new windows opening in split from startify
-let g:ctrlp_mruf_max = 350
-let g:ctrlp_mruf_default_order = 0
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       " Use ag
-  let g:ctrlp_use_caching = 0                                 " ag is fast enough that CtrlP doesn't need to cache
-endif
 
 " Pymode
 let g:pymode_folding = 0
@@ -69,7 +54,18 @@ let g:go_highlight_build_constraints = 1
 let g:vim_json_syntax_conceal = 0                           " Don't hide quotes in JSON.
 
 " fzf
-let $FZF_DEFAULT_COMMAND='ag -g ""'                         " Use ag to obey ignore files
+" Use ag to obey ignore files
+let $FZF_DEFAULT_COMMAND='ag --ignore "*.log" --ignore ".git" --hidden -g ""'
+
+" Custom ag function so we can pass command line options
+function! s:ag_with_opts(arg, bang)
+  let tokens  = split(a:arg)
+  let ag_opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
+  let query   = join(filter(copy(tokens), 'v:val !~ "^-"'))
+  call fzf#vim#ag(query, '--ignore "*.log" --ignore ".git" --hidden', a:bang ? {} : {'down': '40%'})
+endfunction
+
+autocmd VimEnter * command! -nargs=* -bang Ag call s:ag_with_opts(<q-args>, <bang>0)
 
 " This is the default extra key bindings
 let g:fzf_action = {
