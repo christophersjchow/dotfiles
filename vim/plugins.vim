@@ -6,6 +6,10 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers f
 let g:ycm_complete_in_comments = 1                           " Also complete within comments
 let g:ycm_python_binary_path = '/usr/local/bin/python'
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Pymode
 let g:pymode_folding = 0
