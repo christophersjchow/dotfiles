@@ -30,7 +30,7 @@ Plug 'klen/python-mode'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Soliah/vim-test'
+Plug 'janko-m/vim-test'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'

@@ -81,7 +81,6 @@ let g:fzf_action = {
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 " vim-test
-let test#python#runner = 'tox'
 let test#strategy = 'neovim'
 
 " neomake
