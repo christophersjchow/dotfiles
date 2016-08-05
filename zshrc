@@ -18,6 +18,10 @@ fi
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+
 # Setup docker environment variables docker-machine
 # if which docker-machine > /dev/null; then
 #   eval "$(docker-machine env dev)";
