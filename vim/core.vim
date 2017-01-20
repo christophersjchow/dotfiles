@@ -8,8 +8,7 @@
 " Color
 " -----------------------------
 let base16colorspace=256
-set background=dark
-colorscheme base16-tomorrow
+colorscheme base16-tomorrow-night
 
 " Force 256 color mode if available
 if $TERM =~ '-256color'
