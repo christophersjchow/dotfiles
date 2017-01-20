@@ -39,3 +39,7 @@ elseif has('gui_macvim')
     set guioptions-=a " Do not auto copy selection to clipboard.
   endif
 endif
+
+if has('nvim')
+  set clipboard=unnamed
+endif
