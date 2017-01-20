@@ -4,7 +4,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
 let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
 let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
 let g:ycm_complete_in_comments = 1                           " Also complete within comments
-let g:ycm_python_binary_path = '/usr/local/bin/python'
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<c-k>"
@@ -12,11 +12,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Pymode
+let g:pymode_options = 0
 let g:pymode_folding = 0
 let g:pymode_run = 0
 let g:pymode_lint_cwindow = 0
 let g:pymode_rope = 0
 let g:pymode_lint = 0
+let g:pymode_lint_checkers = []
 
 " vim-rails
 
@@ -84,4 +86,5 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 let test#strategy = 'neovim'
 
 " neomake
+let g:neomake_python_enabled_makers = []
 autocmd! BufWritePost * Neomake
