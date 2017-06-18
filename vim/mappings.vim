@@ -17,9 +17,6 @@ nnoremap Q @@
 nnoremap K k
 vnoremap K k
 
-" Toggle paste mode with F5
-nnoremap <F5> :set paste!<CR>
-
 " Remap ESC
 inoremap jj <ESC>
 inoremap jk <ESC>
@@ -32,21 +29,15 @@ if has('nvim')
   tnoremap <Leader>e <C-\><C-n>
 end
 
-if !exists(':Ag')
-  nnoremap <leader>f :Ag<space>
-  nnoremap <silent> <leader>as :AgFromSearch<CR>
-end
+nnoremap <leader>f :Ag<space>
 
-if !exists(':TestFile')
-  nnoremap <silent> <leader>R :w<CR> :TestNearest<CR>
-  nnoremap <silent> <leader>r :w<CR> :TestFile<CR>
-  nnoremap <silent> <leader>a :w<CR> :TestSuite<CR>
-  nnoremap <silent> <leader>l :w<CR> :TestLast<CR>
-  nnoremap <silent> <leader>g :w<CR> :TestVisit<CR>
-end
+nnoremap <silent> <leader>R :w<CR> :TestNearest<CR>
+nnoremap <silent> <leader>r :w<CR> :TestFile<CR>
+nnoremap <silent> <leader>a :w<CR> :TestSuite<CR>
+nnoremap <silent> <leader>l :w<CR> :TestLast<CR>
+nnoremap <silent> <leader>g :w<CR> :TestVisit<CR>
 
-if !exists(':Rename!')
-  nnoremap <Leader><Leader>r :Rename!<space>
-end
+nnoremap <Leader><Leader>r :Rename<space>
 
-nnoremap <leader>t :Files<CR>
+nnoremap <silent> <leader>t :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>

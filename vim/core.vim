@@ -10,11 +10,6 @@
 let base16colorspace=256
 colorscheme base16-tomorrow-night
 
-" Force 256 color mode if available
-if $TERM =~ '-256color'
-  set t_Co=256
-endif
-
 " -----------------------------
 " General Settings
 " -----------------------------
@@ -132,6 +127,4 @@ set t_vb=
 " -----------------------------
 " Languages
 " -----------------------------
-au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
 au FileType go setlocal noexpandtab nolist
-
