@@ -47,6 +47,9 @@ let g:go_highlight_build_constraints = 1
 " Don't hide quotes in JSON.
 let g:vim_json_syntax_conceal = 0
 
+" vim-jsx
+let g:jsx_ext_required = 0
+
 " fzf
 " Use ag to obey ignore files
 let $FZF_DEFAULT_COMMAND='ag --ignore "*.log" --ignore ".git" --hidden -g ""'

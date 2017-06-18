@@ -13,7 +13,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'vim-ruby/vim-ruby'
 
 Plug 'dsawardekar/portkey'
-Plug 'joukevandermaas/vim-ember-hbs'
 
 Plug 'fatih/vim-go'
 
@@ -21,6 +20,9 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
+
+Plug 'mxw/vim-jsx'
+Plug 'joukevandermaas/vim-ember-hbs'
 
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'klen/python-mode'
