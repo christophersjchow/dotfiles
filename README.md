@@ -10,7 +10,7 @@ The following assumptions are made:
 - [homebrew](http://brew.sh/) is used
 - Latest version of tmux is installed from homebrew
 - Latest version of zsh is installed from homebrew
-- Latest version of vim or neovim is installed from homebrew
+- Latest version of neovim is installed from homebrew
 - Latest version of fzf and the_silver_searcher from homebrew
 - User shell is changed to the homebrew version `/usr/local/bin/zsh`
 
@@ -22,20 +22,11 @@ Make sure to load the iTerm2 colour pallete from `~/.colours/base16-iterm2`.
 If you wish to use a different colour, simply change the `colourscheme` in `~/.vimrc` and
 the colourspace script loaded in `~/.zshrc.`
 
-## Installation
-
-**Backup your existing dotfiles first.**
-
-1. Clone the repo `git clone --recursive https://github.com/Soliah/dotfiles.git`
-2. Run `ruby go.rb`
-3. Import the base-16 iTerm2 colour scheme into iTerm2.
-4. Launch vim, ignoring any errors, and run `:PlugInstall`.
-
 ## License
 
 (The MIT License)
 
-Copyright (c) 2015 Christopher Chow
+Copyright (c) 2017 Christopher Chow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
