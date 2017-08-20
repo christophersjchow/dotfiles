@@ -29,6 +29,7 @@ unalias gb
 alias a='tmux attach -t'
 alias g='git'
 alias v='nvim'
+alias vim='nvim'
 alias n='nvim'
 alias t='tmux'
 alias c='cd'
