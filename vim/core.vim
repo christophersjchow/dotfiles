@@ -114,6 +114,7 @@ set noshowmode                               " Don't show the mode since airline
 set title                                    " Set the title of the window in the terminal to the file
 
 if exists('+colorcolumn')
+  set colorcolumn=100
   highlight colorcolumn ctermbg=236 guibg=#262D51
 endif
 
