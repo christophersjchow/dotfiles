@@ -18,6 +18,9 @@ fi
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
+# Load nodenv
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
 # Setup docker environment variables docker-machine
 # if which docker-machine > /dev/null; then
 #   eval "$(docker-machine env dev)";
