@@ -1,9 +1,7 @@
-" YouCompleteMe
-let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
-let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
-let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
-let g:ycm_complete_in_comments = 1                           " Also complete within comments
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Pymode
 let g:pymode_options = 0
@@ -51,8 +49,13 @@ let g:vim_json_syntax_conceal = 0
 let g:jsx_ext_required = 0
 
 " fzf
-" Use ag to obey ignore files
-let $FZF_DEFAULT_COMMAND='ag --ignore "*.log" --ignore ".git" --hidden -g ""'
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --color=always --no-heading --smart-case --hidden --follow --glob "!.git/*" '.shellescape(<q-args>), 1,
+    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \   <bang>0)
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -63,4 +66,5 @@ let test#strategy = 'neovim'
 
 " neomake
 let g:neomake_python_enabled_makers = []
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 autocmd! BufWritePost * Neomake

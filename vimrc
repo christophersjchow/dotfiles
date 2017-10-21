@@ -9,10 +9,10 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
 
+Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
-
-Plug 'dsawardekar/portkey'
 
 Plug 'fatih/vim-go'
 
@@ -33,7 +33,10 @@ Plug 'janko-m/vim-test'
 Plug 'neomake/neomake'
 Plug 'pbrisbin/vim-mkdir'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'fishbullet/deoplete-ruby'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'

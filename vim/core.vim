@@ -32,6 +32,7 @@ set ttimeout
 set timeoutlen=50
 
 set tags+=tags                               " Enable tags.
+set wildignore+=*/.git/*,*/tmp/*,*.swp       " Ignore files that aren't needed.
 
 set selection=inclusive                      " Select to the end of line.
 

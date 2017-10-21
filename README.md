@@ -11,7 +11,7 @@ The following assumptions are made:
 - Latest version of tmux is installed from homebrew
 - Latest version of zsh is installed from homebrew
 - Latest version of neovim is installed from homebrew
-- Latest version of fzf and the_silver_searcher from homebrew
+- Latest version of fzf and ripgrep from homebrew
 - User shell is changed to the homebrew version `/usr/local/bin/zsh`
 
 ## Base16 Colours

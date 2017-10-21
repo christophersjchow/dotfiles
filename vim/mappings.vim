@@ -29,7 +29,7 @@ if has('nvim')
   tnoremap <Leader>e <C-\><C-n>
 end
 
-nnoremap <leader>f :Ag<space>
+nnoremap <leader>f :Rg<space>
 
 nnoremap <silent> <leader>R :w<CR> :TestNearest<CR>
 nnoremap <silent> <leader>r :w<CR> :TestFile<CR>
