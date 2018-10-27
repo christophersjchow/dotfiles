@@ -14,6 +14,10 @@ Plug 'tpope/vim-surround'
 Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 
+Plug 'chr4/nginx.vim'
+
+Plug 'jparise/vim-graphql'
+
 Plug 'fatih/vim-go'
 
 Plug 'hail2u/vim-css3-syntax'
