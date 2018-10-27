@@ -30,8 +30,8 @@ Plug 'klen/python-mode'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'janko-m/vim-test'
-Plug 'neomake/neomake'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'w0rp/ale'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }

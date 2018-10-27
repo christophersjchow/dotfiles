@@ -64,7 +64,12 @@ let g:fzf_action = {
 " vim-test
 let test#strategy = 'neovim'
 
-" neomake
-let g:neomake_python_enabled_makers = []
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-autocmd! BufWritePost * Neomake
+" ale
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+
