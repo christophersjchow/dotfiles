@@ -46,6 +46,8 @@ if has('mouse')
   set mousehide                              " Hide mouse while typing.
 endif
 
+set secure
+
 " -----------------------------
 " Backups and undo
 " -----------------------------
