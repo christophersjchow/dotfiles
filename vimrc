@@ -46,9 +46,11 @@ call plug#begin('~/.vim/plugged')
   command! W :w                                " Seriously, it's not like :W is bound
   set nocompatible                             " Turn off vi compatibility.
 
+  set modeline                                 " Enable reading modelines
+  set modelines=1                              " Only read single modelines
   set encoding=utf8                            " Always use unicode.
   set spelllang=en_au                          " Set spell check language.
-  set shortmess=aIoO                           " Show short messages, no intro.
+  set shortmess=aIoOc                          " Show short messages, no intro.
 
   set hidden                                   " Allow hidden buffers.
   set history=100                              " Size of command history.
@@ -123,8 +125,6 @@ call plug#begin('~/.vim/plugged')
   set noerrorbells
   set novisualbell
   set t_vb=
-
-  set updatetime=300                           " Smaller update time for CursorHold & CursorHoldI
 " }}}
 
 " Appearance {{{
@@ -136,8 +136,7 @@ call plug#begin('~/.vim/plugged')
   set cmdheight=2                              " Command line height to 2
   set noshowmode                               " Don't show the mode since airline shows it
   set title                                    " Set the title of the window in the terminal to the file
-  set modeline                                 " Enable reading modelines
-  set modelines=1                              " Only read single modelines
+  set signcolumn=yes                           " Always show sign column
 
   set foldmethod=marker                        " Fold based on syntax
   set foldlevelstart=99                        " Start with all folds open
@@ -150,106 +149,18 @@ call plug#begin('~/.vim/plugged')
     highlight colorcolumn ctermbg=236 guibg=#262D51
   endif
 
-  " LightLine {{{
-      Plug 'chriskempson/base16-vim'           " Theme
-      Plug 'itchyny/lightline.vim'             " Statusbar
-      Plug 'mike-hearn/base16-vim-lightline'   " Statusbar theme
-      Plug 'ryanoasis/vim-devicons'            " Icons for statusbar and other plugins
+  Plug 'chriskempson/base16-vim'               " Theme
+  Plug 'ryanoasis/vim-devicons'                " Icons for statusbar and other plugins
 
-      let g:lightline = {
-      \   'colorscheme': 'base16_tomorrow_night',
-      \   'active': {
-      \     'left': [
-      \       ['mode', 'paste'],
-      \       ['cocstatus', 'readonly', 'filetype', 'filename']
-      \     ],
-      \     'right': [
-      \       ['percent'], ['lineinfo'],
-      \       ['gitbranch'],
-      \       ['fileformat', 'fileencoding'],
-      \       ['linter_errors', 'linter_warnings']]
-      \   },
-      \   'component_expand': {
-      \     'linter': 'LightlineLinter',
-      \     'linter_warnings': 'LightlineLinterWarnings',
-      \     'linter_errors': 'LightlineLinterErrors',
-      \     'linter_ok': 'LightlineLinterOk'
-      \   },
-      \   'component_type': {
-      \     'readonly': 'error',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error'
-      \   },
-      \   'component_function': {
-      \     'fileencoding': 'LightlineFileEncoding',
-      \     'filename': 'LightlineFileName',
-      \     'fileformat': 'LightlineFileFormat',
-      \     'filetype': 'LightlineFileType',
-      \     'gitbranch': 'LightlineGitBranch',
-      \     'cocstatus': 'coc#status'
-      \   },
-      \   'tabline': {
-      \     'left': [['tabs']],
-      \     'right': [['close']]
-      \   },
-      \   'tab': {
-      \     'active': ['filename', 'modified'],
-      \     'inactive': ['filename', 'modified'],
-      \   },
-      \   'separator': { 'left': '', 'right': '' },
-      \   'subseparator': { 'left': '', 'right': '' }
-      \ }
+  " vim-airline {{{
+      Plug 'vim-airline/vim-airline'
+      Plug 'vim-airline/vim-airline-themes'
 
-      function! LightlineFileName() abort
-          let filename = winwidth(0) > 70 ? expand('%') : expand('%:t')
-          if filename =~ 'NERD_tree'
-              return ''
-          endif
-          let modified = &modified ? ' +' : ''
-          return fnamemodify(filename, ":~:.") . modified
-      endfunction
-
-      function! LightlineFileEncoding()
-          " only show the file encoding if it's not 'utf-8'
-          return &fileencoding == 'utf-8' ? '' : &fileencoding
-      endfunction
-
-      function! LightlineFileFormat()
-          " only show the file format if it's not 'unix'
-          let format = &fileformat == 'unix' ? '' : &fileformat
-          return winwidth(0) > 70 ? format . ' ' . WebDevIconsGetFileFormatSymbol() : ''
-      endfunction
-
-      function! LightlineFileType()
-          return WebDevIconsGetFileTypeSymbol()
-      endfunction
-
-      function! LightlineLinter() abort
-          let l:counts = ale#statusline#Count(bufnr(''))
-          return l:counts.total == 0 ? '' : printf('×%d', l:counts.total)
-      endfunction
-
-      function! LightlineLinterWarnings() abort
-          let l:counts = ale#statusline#Count(bufnr(''))
-          let l:all_errors = l:counts.error + l:counts.style_error
-          let l:all_non_errors = l:counts.total - l:all_errors
-          return l:counts.total == 0 ? '' : '⚠ ' . printf('%d', all_non_errors)
-      endfunction
-
-      function! LightlineLinterErrors() abort
-          let l:counts = ale#statusline#Count(bufnr(''))
-          let l:all_errors = l:counts.error + l:counts.style_error
-          return l:counts.total == 0 ? '' : '✖ ' . printf('%d', all_errors)
-      endfunction
-
-      function! LightlineLinterOk() abort
-          let l:counts = ale#statusline#Count(bufnr(''))
-          return l:counts.total == 0 ? 'OK' : ''
-      endfunction
-
-      function! LightlineGitBranch()
-          return "\uE725 " . (exists('*fugitive#head') ? fugitive#head() : '')
-      endfunction
+      let g:airline_theme = 'base16'
+      let g:airline_powerline_fonts = 1
+      let g:airline_detect_modified = 1
+      let g:airline#extensions#whitespace#enabled = 1
+      let g:airline#extensions#hunks#enabled = 0
     " }}}
 " }}}
 
@@ -264,8 +175,8 @@ call plug#begin('~/.vim/plugged')
   nnoremap Q @@
 
   " Removes doc lookup mapping because it's easy to fat finger and never useful.
-  nnoremap K k
-  vnoremap K k
+  " nnoremap K k
+  " vnoremap K k
 
   " Remap ESC
   inoremap jj <ESC>
@@ -303,7 +214,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
 
     " Override the default command with ripgrep to include all files
-    let $FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore --glob "!.git/*"' 
+    let $FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore --glob "!.git/*"'
 
     " Text search using ripgrep
     command! -bang -nargs=* Search
@@ -396,13 +307,13 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'w0rp/ale'
 
-    let g:ale_set_highlights = 0
-    let g:ale_change_sign_column_color = 0
-    let g:ale_sign_error = '✖'
-    let g:ale_sign_warning = '⚠'
-    let g:ale_echo_msg_error_str = '✖'
-    let g:ale_echo_msg_warning_str = '⚠'
-    let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
+    " let g:ale_set_highlights = 1
+    " let g:ale_change_sign_column_color = 1
+    " let g:ale_sign_error = ''
+    " let g:ale_sign_warning = '⚠'
+    " let g:ale_echo_msg_error_str = ''
+    " let g:ale_echo_msg_warning_str = '⚠'
+    " let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 
     let g:ale_linters = {
       \ 'javascript': ['eslint', 'prettier'],
@@ -414,23 +325,27 @@ call plug#begin('~/.vim/plugged')
       \ 'typescript.tsx': ['tslint'],
       \ 'javascript': ['eslint'] }
     let g:ale_javascript_prettier_use_local_config = 1
-    let g:ale_fix_on_save = 0
+    let g:ale_fix_on_save = 1
   " }}}
 
   " COC {{{
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
     " Customise symbols for status bar (does not affect gutter)
-    let g:coc_status_error_sign = '⚠ '
-    let g:coc_status_warning_sign = '⚠ '
+    " let g:coc_status_error_sign = ' '
+    " let g:coc_status_warning_sign = '⚠ '
 
     " List of extensions.
     let g:coc_global_extensions = [
       \  'coc-css',
       \  'coc-html',
+      \  'coc-yaml',
       \  'coc-json',
       \  'coc-stylelint',
       \  'coc-tag',
+      \  'coc-solargraph',
+      \  'coc-highlight',
+      \  'coc-snippets',
       \  'coc-tsserver']
 
     " Use tab for trigger completion with characters ahead and navigate.
@@ -467,6 +382,12 @@ call plug#begin('~/.vim/plugged')
         call CocAction('doHover')
       endif
     endfunction
+
+    " Remap <C-c> as it breaks COC
+    nmap <C-c> <ESC>
+    imap <C-c> <ESC>
+    vmap <C-c> <ESC>
+    omap <C-c> <ESC>
 
     " Remap keys for gotos
     nmap <silent> gd <Plug>(coc-definition)
