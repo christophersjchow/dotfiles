@@ -161,6 +161,8 @@ call plug#begin('~/.vim/plugged')
       let g:airline_detect_modified = 1
       let g:airline#extensions#whitespace#enabled = 1
       let g:airline#extensions#hunks#enabled = 0
+      let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+      let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
     " }}}
 " }}}
 
@@ -192,12 +194,15 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " General Functionality {{{
-  Plug 'tpope/vim-fugitive'                    " Git commands in vim
   Plug 'tpope/vim-sleuth'                      " Detect indent style
   Plug 'tpope/vim-commentary'                  " Comment code using vim motions
   Plug 'tpope/vim-surround'                    " Deal with surrounding text elements (quotes, parenthenses)
   Plug 'tpope/vim-repeat'                      " Support using dot operator for other plugins
   Plug 'pbrisbin/vim-mkdir'                    " Automatically create directories when creating new buffers
+
+  " vim-fugitive {{{
+    Plug 'tpope/vim-fugitive'                  " Git commands in vim
+  " }}}
 
   " vim-signify {{{
     Plug 'mhinz/vim-signify'
@@ -309,11 +314,25 @@ call plug#begin('~/.vim/plugged')
 
     " let g:ale_set_highlights = 1
     " let g:ale_change_sign_column_color = 1
-    " let g:ale_sign_error = ''
-    " let g:ale_sign_warning = '⚠'
-    " let g:ale_echo_msg_error_str = ''
-    " let g:ale_echo_msg_warning_str = '⚠'
-    " let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
+    let g:ale_sign_error = '⚠'
+    let g:ale_sign_warning = '⚠'
+    let g:ale_echo_msg_error_str = '⚠'
+    let g:ale_echo_msg_warning_str = '⚠'
+    let g:ale_echo_msg_format = '%severity% %s [%linter%% code%]'
+
+    " Sign highlight colours (gutter)
+    highlight link ALEErrorSign Exception
+    highlight link ALEStyleErrorSign Exception
+    highlight link ALEWarningSign todo
+    highlight link ALEStyleWarningSign ALEWarningSign
+    highlight link ALEInfoSign ALEWarningSign
+
+    " ale doesn't highlight partial lines like coc, only whole lines
+    " so use something less obtrusive than the defaults
+    highlight link ALEError Exception
+    highlight link ALEErrorLine ALEError
+    highlight link ALEWarningLine WarningMsg
+    highlight link ALEInfoLine Todo
 
     let g:ale_linters = {
       \ 'javascript': ['eslint', 'prettier'],
@@ -331,9 +350,10 @@ call plug#begin('~/.vim/plugged')
   " COC {{{
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
-    " Customise symbols for status bar (does not affect gutter)
-    " let g:coc_status_error_sign = ' '
-    " let g:coc_status_warning_sign = '⚠ '
+    " Line highlight colours
+    highlight link CocErrorHighlight Error
+    highlight link CocWarningHighlihgt WarningMsg
+    highlight link CocInfoHighlight Todo
 
     " List of extensions.
     let g:coc_global_extensions = [
@@ -346,7 +366,8 @@ call plug#begin('~/.vim/plugged')
       \  'coc-solargraph',
       \  'coc-highlight',
       \  'coc-snippets',
-      \  'coc-tsserver']
+      \  'coc-tsserver',
+      \  'coc-tslint-plugin']
 
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
