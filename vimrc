@@ -219,7 +219,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
 
     " Override the default command with ripgrep to include all files
-    let $FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore --glob "!.git/*"'
+    let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore --glob "!.git/*"'
 
     " Text search using ripgrep
     command! -bang -nargs=* Search
@@ -228,9 +228,6 @@ call plug#begin('~/.vim/plugged')
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
-    " Use git for default fuzzy find
-    command! -bang -nargs=? -complete=dir GitFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
     " Open new buffers from fzf
     let g:fzf_action = {
@@ -239,8 +236,7 @@ call plug#begin('~/.vim/plugged')
       \ 'ctrl-v': 'vsplit' }
 
     " Mappings for file finder and fuzzy search
-    nnoremap <silent> <leader>t :GitFiles --cached --others --exclude-standard<CR>
-    nnoremap <silent> <leader>T :Files<CR>
+    nnoremap <silent> <leader>t :Files<CR>
     nnoremap <silent> <leader>b :Buffers<CR>
 
     " Use our own search instead of built :Rg so we don't follow links
@@ -336,12 +332,12 @@ call plug#begin('~/.vim/plugged')
 
     let g:ale_linters = {
       \ 'javascript': ['eslint', 'prettier'],
-      \ 'typescript': ['tslint', 'prettier'],
-      \ 'typescript.tsx': ['tslint', 'prettier'] }
+      \ 'typescript': ['tslint', 'eslint', 'prettier'],
+      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'] }
     let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'typescript': ['tslint'],
-      \ 'typescript.tsx': ['tslint'],
+      \ 'typescript': ['tslint', 'eslint', 'prettier'],
+      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
       \ 'javascript': ['eslint'] }
     let g:ale_javascript_prettier_use_local_config = 1
     let g:ale_fix_on_save = 1
