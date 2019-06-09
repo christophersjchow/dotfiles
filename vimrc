@@ -264,16 +264,20 @@ call plug#begin('~/.vim/plugged')
 " Language Configuration {{{
   Plug 'tpope/vim-markdown'                    " Markdown syntax support
   Plug 'tpope/vim-haml'                        " HAML syntax support
+  Plug 'mustache/vim-mustache-handlebars'      " Mustache/handlebars syntax support
 
   Plug 'hail2u/vim-css3-syntax'                " CSS3 syntax support
   Plug 'cakebaker/scss-syntax.vim'             " SASS syntax support
 
   Plug 'elzr/vim-json'                         " Better JSON syntax support
+
+  Plug 'aklt/plantuml-syntax'                  " PlantUML syntax support
   let g:vim_json_syntax_conceal = 0
 
   " Operations {{{
     Plug 'chr4/nginx.vim'                      " nginx config syntax support
     Plug 'hashivim/vim-hashicorp-tools'        " HashiCorp tools (Vagrant, Terraform, Consul etc) syntax support
+    Plug 'towolf/vim-helm'                     " Helm Charts syntax support
   " }}}
 
   " Ruby on Rails {{{
