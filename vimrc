@@ -122,7 +122,6 @@ call plug#begin('~/.vim/plugged')
   " Disable Sounds
   set noerrorbells
   set novisualbell
-  set t_vb=
 " }}}
 
 " Appearance {{{
