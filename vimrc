@@ -340,7 +340,8 @@ call plug#begin('~/.vim/plugged')
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'typescript': ['tslint', 'eslint', 'prettier'],
       \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
-      \ 'javascript': ['eslint'] }
+      \ 'javascript': ['eslint'],
+      \ 'yaml': ['prettier'] }
     let g:ale_javascript_prettier_use_local_config = 1
     let g:ale_fix_on_save = 1
   " }}}
