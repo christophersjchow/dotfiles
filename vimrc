@@ -1,5 +1,3 @@
-" vim:set filetype=vim foldmethod=marker foldlevel=1
-
 call plug#begin('~/.vim/plugged')
 
 " Platform {{{
@@ -138,11 +136,10 @@ call plug#begin('~/.vim/plugged')
   set title                                    " Set the title of the window in the terminal to the file
   set signcolumn=yes                           " Always show sign column
 
+  set foldenable                               " Don't fold by default
   set foldmethod=marker                        " Fold based on syntax
   set foldlevelstart=99                        " Start with all folds open
   set foldnestmax=10                           " Deepest fold is 10 levels
-  set nofoldenable                             " Don't fold by default
-  set foldlevel=1
 
   if exists('+colorcolumn')
     set colorcolumn=120
