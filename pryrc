@@ -1,5 +1,8 @@
 require "awesome_print"
-AwesomePrint.pry!
+
+if defined?(AwesomePrint)
+  AwesomePrint.pry!
+end
 
 if defined?(PryByebug)
   Pry.commands.alias_command 'c', 'continue'
