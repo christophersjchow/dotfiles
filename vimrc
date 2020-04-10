@@ -320,15 +320,16 @@ call plug#begin('~/.vim/plugged')
     " Sign highlight colours (gutter)
     highlight link ALEErrorSign Exception
     highlight link ALEStyleErrorSign Exception
-    highlight link ALEWarningSign todo
+    highlight link ALEWarningSign Todo
     highlight link ALEStyleWarningSign ALEWarningSign
     highlight link ALEInfoSign ALEWarningSign
 
     " ale doesn't highlight partial lines like coc, only whole lines
     " so use something less obtrusive than the defaults
-    highlight link ALEError Exception
-    highlight link ALEErrorLine ALEError
-    highlight link ALEWarningLine WarningMsg
+    highlight link ALEError Error
+    highlight link ALEErrorLine Error
+    highlight link ALEWarning Todo
+    highlight link ALEWarningLine Todo
     highlight link ALEInfoLine Todo
 
     let g:ale_linters = {
@@ -348,8 +349,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
     " Line highlight colours
-    highlight link CocErrorHighlight Error
-    highlight link CocWarningHighlihgt WarningMsg
+    highlight link CocErrorHighlight Underlined
+    highlight link CocWarningHighlight WarningMsg
     highlight link CocInfoHighlight Todo
 
     " List of extensions.
