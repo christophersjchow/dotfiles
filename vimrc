@@ -274,6 +274,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'chr4/nginx.vim'                      " nginx config syntax support
     Plug 'hashivim/vim-hashicorp-tools'        " HashiCorp tools (Vagrant, Terraform, Consul etc) syntax support
     Plug 'towolf/vim-helm'                     " Helm Charts syntax support
+    Plug 'pearofducks/ansible-vim'             " Ansible syntax support
   " }}}
 
   " Ruby on Rails {{{
