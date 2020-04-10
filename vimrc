@@ -155,6 +155,7 @@ call plug#begin('~/.vim/plugged')
       let g:airline_theme = 'base16'
       let g:airline_powerline_fonts = 1
       let g:airline_detect_modified = 1
+      let g:airline#extensions#ale#enabled = 1
       let g:airline#extensions#whitespace#enabled = 1
       let g:airline#extensions#hunks#enabled = 0
       let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
@@ -307,10 +308,9 @@ call plug#begin('~/.vim/plugged')
   " ale {{{
     let g:ale_completion_enabled = 0       " Disable completion before loading ale
 
-    Plug 'w0rp/ale'
+    Plug 'dense-analysis/ale'
 
-    " let g:ale_set_highlights = 1
-    " let g:ale_change_sign_column_color = 1
+
     let g:ale_sign_error = '⚠'
     let g:ale_sign_warning = '⚠'
     let g:ale_echo_msg_error_str = '⚠'
