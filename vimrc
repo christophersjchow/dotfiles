@@ -219,12 +219,15 @@ call plug#begin('~/.vim/plugged')
     let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore --glob "!.git/*"'
 
     " Text search using ripgrep
-    command! -bang -nargs=* Search
-      \ call fzf#vim#grep(
-      \   'rg --column --color=always --no-heading --smart-case --hidden --glob "!.git/*" '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
+    function! RipgrepFzf(query, fullscreen)
+      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --ignore --glob "!.git/*" -- %s || true'
+      let initial_command = printf(command_fmt, shellescape(a:query))
+      let reload_command = printf(command_fmt, '{q}')
+      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+      call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    endfunction
+
+    command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
     " Open new buffers from fzf
     let g:fzf_action = {
@@ -232,12 +235,31 @@ call plug#begin('~/.vim/plugged')
       \ 'ctrl-x': 'split',
       \ 'ctrl-v': 'vsplit' }
 
+    let g:fzf_layout = { 'down': '40%' }
+
+    " Customize fzf colors to match your color scheme
+    " - fzf#wrap translates this to a set of `--color` options
+    let g:fzf_colors =
+    \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
+
     " Mappings for file finder and fuzzy search
     nnoremap <silent> <leader>t :Files<CR>
     nnoremap <silent> <leader>b :Buffers<CR>
 
     " Use our own search instead of built :Rg so we don't follow links
-    nnoremap <leader>f :Search<space>
+    nnoremap <leader>f :RG<space>
   " }}}
 
   " vim-eunuch {{{
@@ -273,7 +295,9 @@ call plug#begin('~/.vim/plugged')
 
   " Operations {{{
     Plug 'chr4/nginx.vim'                      " nginx config syntax support
-    Plug 'hashivim/vim-hashicorp-tools'        " HashiCorp tools (Vagrant, Terraform, Consul etc) syntax support
+    Plug 'hashivim/vim-packer'                 " Packer syntax support
+    Plug 'hashivim/vim-terraform'              " Terraform syntax support
+
     Plug 'towolf/vim-helm'                     " Helm Charts syntax support
     Plug 'pearofducks/ansible-vim'             " Ansible syntax support
   " }}}
@@ -347,7 +371,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " COC {{{
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Line highlight colours
     highlight link CocErrorHighlight Underlined
