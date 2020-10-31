@@ -1,21 +1,35 @@
+# Set a custom prompt
 set cmd:prompt "\[\e[1;37m\]lftp\] \[\e[01;34m\]\]\u \[\e[00m\]on \[\e[01;31m\]\h \[\e[00m\]in \[\e[01;34m\]\]\\w \n\[\e[00m\]\]$ "
-set cmd:default-title "lftp \h:\w"
+
+# Limit one active job in queue
 set cmd:queue-parallel 1
 
-# diable logs
-set cmd:save-cwd-history false
-set cmd:save-rl-history false
-set xfer:log false
-
-
-# mirror settings
+# Use pget with 10 parts for mirroring
 set mirror:use-pget-n 10
-set mirror:parallel-transfer-count 2
+# Only allow 1 tranfser when mirroring
+set mirror:parallel-transfer-count 1
 
-# pget settings
+# Default to 10 parts when using pget
 set pget:default-n 10
 
-# aliases
-alias pget "pget -c"
+# Save passwords in bookmarks
+set bmk:save-passwords yes
 
+# Don't verify SSL when downloading over https
 set ssl:verify-certificate no
+
+# Aliases
+# Use cls for less verbosity
+alias ls cls
+alias rels recls
+# Always allow resumption of downloads with pget or mirror
+alias mirror "mirror -c"
+alias pget "pget -c"
+# Single char command
+alias p "pget -c"
+alias q queue
+alias k queue
+alias m "mirror -c"
+# Mirror globbed files or directories
+alias mfile "mirror -c -f"
+alias mdir "mirror -c -F"
