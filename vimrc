@@ -359,13 +359,15 @@ call plug#begin('~/.vim/plugged')
     let g:ale_linters = {
       \ 'javascript': ['eslint', 'prettier'],
       \ 'typescript': ['tslint', 'eslint', 'prettier'],
-      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'] }
+      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
+      \ 'terraform': ['tflint'] }
     let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'typescript': ['tslint', 'eslint', 'prettier'],
       \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
       \ 'javascript': ['eslint'],
-      \ 'yaml': ['prettier'] }
+      \ 'yaml': ['prettier'],
+      \ 'terraform': ['terraform'] }
     let g:ale_javascript_prettier_use_local_config = 1
     let g:ale_fix_on_save = 1
   " }}}
