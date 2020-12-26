@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 ROOT=$(pwd)
 
@@ -32,10 +32,10 @@ xdg_config=(
 
 for file in "${main_dotfiles[@]}";
 do
-  ln -nfs "$ROOT/$file" "~/.$file"
+  ln -nfs "$ROOT/$file" "$HOME/.$file"
 done
 
 for file in "${!xdg_config[@]}";
 do
-  ln -nfs "$ROOT/$file" "~/.config/${xdg_config[$file]}"
+  ln -nfs "$ROOT/$file" "$HOME/.config/${xdg_config[$file]}"
 done
