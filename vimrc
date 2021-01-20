@@ -363,6 +363,7 @@ call plug#begin('~/.vim/plugged')
       \ 'terraform': ['tflint'] }
     let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'ruby': ['rubocop'],
       \ 'typescript': ['tslint', 'eslint', 'prettier'],
       \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
       \ 'javascript': ['eslint'],
