@@ -369,6 +369,7 @@ call plug#begin('~/.vim/plugged')
       \ 'javascript': ['eslint'],
       \ 'yaml': ['prettier'],
       \ 'terraform': ['terraform'] }
+    let g:ale_ruby_rubocop_options = '-A'
     let g:ale_javascript_prettier_use_local_config = 1
     let g:ale_fix_on_save = 1
   " }}}
@@ -384,16 +385,18 @@ call plug#begin('~/.vim/plugged')
     " List of extensions.
     let g:coc_global_extensions = [
       \  'coc-css',
+      \  'coc-eslint',
+      \  'coc-highlight',
       \  'coc-html',
-      \  'coc-yaml',
+      \  'coc-jest',
       \  'coc-json',
+      \  'coc-prettier',
+      \  'coc-snippets',
+      \  'coc-solargraph',
       \  'coc-stylelint',
       \  'coc-tag',
-      \  'coc-solargraph',
-      \  'coc-highlight',
-      \  'coc-snippets',
       \  'coc-tsserver',
-      \  'coc-tslint-plugin']
+      \  'coc-yaml']
 
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
