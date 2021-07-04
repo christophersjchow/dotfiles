@@ -22,6 +22,7 @@ main_dotfiles=(
   gvimrc
   gitexclude
   gemrc
+  asdfrc
   colours
 )
 
