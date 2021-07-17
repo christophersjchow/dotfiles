@@ -1,6 +1,6 @@
 vim/plugged
 vim/autoload
-vim/undo
+vim/undo*
 vim/.netrwhist
 ssh/*
 lftp/bookmarks
