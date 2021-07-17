@@ -54,6 +54,7 @@ call plug#begin('~/.vim/plugged')
   set history=100                              " Size of command history.
   set confirm                                  " Enable error files & error jumping.
   set autoread                                 " Automatically reload changes if detected
+  set updatetime=200                           " Set wait time for cursor related actions
 
   set tags+=tags                               " Enable tags.
   set wildignore+=*/.git/*,*/tmp/*,*.swp       " Ignore files that aren't needed.
@@ -83,7 +84,8 @@ call plug#begin('~/.vim/plugged')
     set undofile
 
     if has('nvim-0.5')
-      " New format in https://github.com/neovim/neovim/pull/13973 (f42e932, 2021-04-13).
+      " New format in https://github.com/neovim/neovim/pull/13973 (f42e932,
+      " 2021-04-13).
       set undodir=~/.vim/undo2
     else
       set undodir=~/.vim/undo
@@ -151,7 +153,7 @@ call plug#begin('~/.vim/plugged')
     highlight colorcolumn ctermbg=236 guibg=#262D51
   endif
 
-  Plug 'chriskempson/base16-vim'               " Theme
+  Plug 'fnune/base16-vim'                      " Theme
   Plug 'ryanoasis/vim-devicons'                " Icons for statusbar and other plugins
 
   " vim-airline {{{
@@ -204,16 +206,6 @@ call plug#begin('~/.vim/plugged')
 
   " vim-fugitive {{{
     Plug 'tpope/vim-fugitive'                  " Git commands in vim
-  " }}}
-
-  " vim-signify {{{
-    Plug 'mhinz/vim-signify'
-
-    let g:signify_vcs_list = ['git']
-    let g:signify_sign_add               = '┃'
-    let g:signify_sign_delete            = '-'
-    let g:signify_sign_delete_first_line = '_'
-    let g:signify_sign_change = '┃'
   " }}}
 
   " Fuzzy Finder and Search (FZF) {{{
@@ -330,6 +322,7 @@ call plug#begin('~/.vim/plugged')
     let g:coc_global_extensions = [
       \  'coc-css',
       \  'coc-eslint',
+      \  'coc-git',
       \  'coc-highlight',
       \  'coc-html',
       \  'coc-json',
