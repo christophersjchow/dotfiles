@@ -224,17 +224,6 @@ call plug#begin('~/.vim/plugged')
     " Override the default command with ripgrep to include all files
     let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore --glob "!.git/*"'
 
-    " Text search using ripgrep
-    function! RipgrepFzf(query, fullscreen)
-      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --ignore --glob "!.git/*" -- %s || true'
-      let initial_command = printf(command_fmt, shellescape(a:query))
-      let reload_command = printf(command_fmt, '{q}')
-      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-      call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-    endfunction
-
-    command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
     " Open new buffers from fzf
     let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
@@ -265,7 +254,7 @@ call plug#begin('~/.vim/plugged')
     nnoremap <silent> <leader>b :Buffers<CR>
 
     " Use our own search instead of built :Rg so we don't follow links
-    nnoremap <leader>f :RG<space>
+    nnoremap <leader>f :Rg<space>
   " }}}
 
   " vim-eunuch {{{
