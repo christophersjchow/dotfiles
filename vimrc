@@ -382,6 +382,12 @@ call plug#begin('~/.vim/plugged')
     " Remap for rename current word
     nmap <leader>rn <Plug>(coc-rename)
 
+    " Remap for scrolling popup window
+    nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
     " Configure coc-highlight
     autocmd CursorHold * silent call CocActionAsync('highlight')
   " }}}
