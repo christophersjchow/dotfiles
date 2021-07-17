@@ -161,7 +161,6 @@ call plug#begin('~/.vim/plugged')
       let g:airline_theme = 'base16'
       let g:airline_powerline_fonts = 1
       let g:airline_detect_modified = 1
-      let g:airline#extensions#ale#enabled = 1
       let g:airline#extensions#whitespace#enabled = 1
       let g:airline#extensions#hunks#enabled = 0
       let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
@@ -324,58 +323,8 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 " Completion and Linting {{{
-  " ale {{{
-    let g:ale_completion_enabled = 0       " Disable completion before loading ale
-
-    Plug 'dense-analysis/ale'
-
-
-    let g:ale_sign_error = '⚠'
-    let g:ale_sign_warning = '⚠'
-    let g:ale_echo_msg_error_str = '⚠'
-    let g:ale_echo_msg_warning_str = '⚠'
-    let g:ale_echo_msg_format = '%severity% %s [%linter%% code%]'
-
-    " Sign highlight colours (gutter)
-    highlight link ALEErrorSign Exception
-    highlight link ALEStyleErrorSign Exception
-    highlight link ALEWarningSign Todo
-    highlight link ALEStyleWarningSign ALEWarningSign
-    highlight link ALEInfoSign ALEWarningSign
-
-    " ale doesn't highlight partial lines like coc, only whole lines
-    " so use something less obtrusive than the defaults
-    highlight link ALEError Error
-    highlight link ALEErrorLine Error
-    highlight link ALEWarning Todo
-    highlight link ALEWarningLine Todo
-    highlight link ALEInfoLine Todo
-
-    let g:ale_linters = {
-      \ 'javascript': ['eslint', 'prettier'],
-      \ 'typescript': ['tslint', 'eslint', 'prettier'],
-      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
-      \ 'terraform': ['tflint'] }
-    let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'ruby': ['rubocop'],
-      \ 'typescript': ['tslint', 'eslint', 'prettier'],
-      \ 'typescript.tsx': ['tslint', 'eslint', 'prettier'],
-      \ 'javascript': ['eslint'],
-      \ 'yaml': ['prettier'],
-      \ 'terraform': ['terraform'] }
-    let g:ale_ruby_rubocop_options = '-A'
-    let g:ale_javascript_prettier_use_local_config = 1
-    let g:ale_fix_on_save = 1
-  " }}}
-
   " COC {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    " Line highlight colours
-    highlight link CocErrorHighlight Underlined
-    highlight link CocWarningHighlight WarningMsg
-    highlight link CocInfoHighlight Todo
 
     " List of extensions.
     let g:coc_global_extensions = [
@@ -383,13 +332,10 @@ call plug#begin('~/.vim/plugged')
       \  'coc-eslint',
       \  'coc-highlight',
       \  'coc-html',
-      \  'coc-jest',
       \  'coc-json',
       \  'coc-prettier',
-      \  'coc-snippets',
       \  'coc-solargraph',
       \  'coc-stylelint',
-      \  'coc-tag',
       \  'coc-tsserver',
       \  'coc-yaml']
 
@@ -442,6 +388,9 @@ call plug#begin('~/.vim/plugged')
 
     " Remap for rename current word
     nmap <leader>rn <Plug>(coc-rename)
+
+    " Configure coc-highlight
+    autocmd CursorHold * silent call CocActionAsync('highlight')
   " }}}
 " }}}
 
@@ -451,4 +400,11 @@ call plug#end()
   " base16-shell 256 colour support
   let base16colorspace=256
   colorscheme base16-tomorrow-night
+" }}}
+
+" COC Colours {{{
+  " Set colours after theme otherwise they get overwritten
+  highlight link CocErrorHighlight Underlined
+  highlight link CocWarningHighlight WarningMsg
+  highlight link CocInfoHighlight Todo
 " }}}

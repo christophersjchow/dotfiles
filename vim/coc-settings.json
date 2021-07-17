@@ -1,6 +1,6 @@
 {
-  "coc.preferences.diagnostic.errorSign": "⚠",
-  "coc.preferences.diagnostic.warningSign": "⚠",
-  "coc.preferences.diagnostic.infoSign": "⚠",
-  "coc.preferences.diagnostic.hintSign": "⚠"
+  "eslint.autoFixOnSave": true,
+  "yaml.format.enable": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": ["markdown", "javascript", "javascript.jsx", "typescript", "typescript.tsx", "ruby", "yaml"]
 }
