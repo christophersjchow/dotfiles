@@ -81,7 +81,13 @@ call plug#begin('~/.vim/plugged')
   " Persistent Undo
   if has('persistent_undo')
     set undofile
-    set undodir=~/.vim/undo
+
+    if has('nvim-0.5')
+      " New format in https://github.com/neovim/neovim/pull/13973 (f42e932, 2021-04-13).
+      set undodir=~/.vim/undo2
+    else
+      set undodir=~/.vim/undo
+    endif
   endif
 
   " Search and Replace
