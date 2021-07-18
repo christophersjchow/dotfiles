@@ -422,7 +422,9 @@ call plug#end()
   " Set colours after theme otherwise they get overwritten
   highlight link CocErrorHighlight Underlined
   highlight link CocWarningHighlight WarningMsg
-  highlight link CocInfoHighlight Todo
   highlight link CocInfoFloat NormalFloat
   highlight link CocHintFloat NormalFloat
+  highlight! link CocHighlightText Search
+  highlight! link CocHighlightRead Search
+  highlight! link CocHighlightWrite Search
 " }}}
