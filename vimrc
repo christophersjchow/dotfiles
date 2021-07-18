@@ -165,8 +165,7 @@ call plug#begin('~/.vim/plugged')
       let g:airline_detect_modified = 1
       let g:airline#extensions#whitespace#enabled = 1
       let g:airline#extensions#hunks#enabled = 0
-      let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-      let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+      let g:airline#extensions#coc#enabled = 1
     " }}}
 " }}}
 
