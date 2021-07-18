@@ -332,6 +332,25 @@ call plug#begin('~/.vim/plugged')
       \  'coc-tsserver',
       \  'coc-yaml']
 
+    let g:coc_user_config = {
+      \  "eslint.autoFixOnSave": "true",
+      \  "git.addedSign.text": "┃",
+      \  "git.addedSign.hlGroup": "DiffAdded",
+      \  "git.changedSign.hlGroup": "DiffLine",
+      \  "git.changedSign.text": "┃",
+      \  "git.changeRemovedSign.text": "-",
+      \  "git.removedSign.hlGroup": "DiffRemoved",
+      \  "git.changeRemovedSign.hlGroup": "DiffRemoved",
+      \  "git.topRemovedSign.hlGroup": "DiffRemoved",
+      \  "highlight.document.enable": "true",
+      \  "highlight.colors.enable": "true",
+      \  "highlight.colorNames.enable": "true",
+      \  "solargraph.promptDownload": "false",
+      \  "yaml.format.enable": "true",
+      \  "coc.preferences.colorSupport": "true",
+      \  "coc.preferences.formatOnSaveFiletypes": ["markdown", "javascript", "javascript.jsx", "typescript", "typescript.tsx", "ruby", "yaml"]
+      \ }
+
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
     inoremap <silent><expr> <TAB>
