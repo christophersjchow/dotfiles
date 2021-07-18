@@ -295,11 +295,10 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " JavaScript and TypeScript {{{
-    Plug 'othree/yajs.vim'                     " JavaScript (ES6, ES7, ES8) syntax support
-    Plug 'othree/es.next.syntax.vim'           " JavaScript ESNext syntax support
+    Plug 'HerringtonDarkholme/yats.vim'        " TypeScript
+    Plug 'yuezk/vim-js'                        " JavaScript
+    Plug 'maxmellon/vim-jsx-pretty'            " TSX and JSX
     Plug 'jparise/vim-graphql'                 " GraphQL syntax support including within tags
-    Plug 'mxw/vim-jsx'                         " JSX syntax support
-    Plug 'HerringtonDarkholme/yats.vim'        " TypeScript syntax support
   " }}}
 
   " Go {{{
