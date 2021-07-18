@@ -242,6 +242,7 @@ call plug#begin('~/.vim/plugged')
     " Mappings for file finder and fuzzy search
     nnoremap <silent> <leader>t :Files<CR>
     nnoremap <silent> <leader>b :Buffers<CR>
+    nnoremap <silent> <leader>m :History<CR>
 
     " Use our own search instead of built :Rg so we don't follow links
     nnoremap <leader>f :Rg<space>
