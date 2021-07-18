@@ -423,4 +423,6 @@ call plug#end()
   highlight link CocErrorHighlight Underlined
   highlight link CocWarningHighlight WarningMsg
   highlight link CocInfoHighlight Todo
+  highlight link CocInfoFloat NormalFloat
+  highlight link CocHintFloat NormalFloat
 " }}}
