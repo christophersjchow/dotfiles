@@ -19,7 +19,7 @@ fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # Load asdf
-. /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias a='tmux attach -t'
 alias g='git'
