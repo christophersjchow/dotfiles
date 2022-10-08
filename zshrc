@@ -28,12 +28,14 @@ else
 fi
 
 # Google Cloud SDK
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+if (( $+commands[brew] )); then
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
-# Load homebrew completions
-fpath=($fpath $HOMEBREW_PREFIX/share/zsh/site-functions)
+  # Load homebrew completions
+  fpath=($fpath $HOMEBREW_PREFIX/share/zsh/site-functions)
+fi
 
 alias a='tmux attach -t'
 alias g='git'
