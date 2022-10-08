@@ -10,7 +10,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Source base16 256 colourspace script.
+# Source base16-shell 256 colourspace script.
 if [[ -s "$HOME/.colours/base16-shell/scripts/base16-tomorrow-night.sh" ]]; then
   source "$HOME/.colours/base16-shell/scripts/base16-tomorrow-night.sh"
 fi

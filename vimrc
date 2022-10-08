@@ -153,7 +153,7 @@ call plug#begin('~/.vim/plugged')
     highlight colorcolumn ctermbg=236 guibg=#262D51
   endif
 
-  Plug 'fnune/base16-vim'                      " Theme
+  Plug 'base16-project/base16-vim'             " Theme
   Plug 'ryanoasis/vim-devicons'                " Icons for statusbar and other plugins
 
   " vim-airline {{{
