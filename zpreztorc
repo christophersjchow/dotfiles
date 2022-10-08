@@ -32,6 +32,7 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'editor' \
   'history' \
+  'homebrew' \
   'git' \
   'osx' \
   'ruby' \

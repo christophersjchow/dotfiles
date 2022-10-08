@@ -29,8 +29,11 @@ fi
 
 # Google Cloud SDK
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
+# Load homebrew completions
+fpath=($fpath $HOMEBREW_PREFIX/share/zsh/site-functions)
 
 alias a='tmux attach -t'
 alias g='git'
