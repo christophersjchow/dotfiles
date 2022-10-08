@@ -46,6 +46,7 @@ path=(
   /usr/local/{bin,sbin}
   /opt/homebrew/bin
   /opt/homebrew/opt/postgresql@11/bin
+  /opt/homebrew/opt/openjdk/bin
   $path
 )
 
