@@ -320,6 +320,7 @@ call plug#begin('~/.vim/plugged')
     " List of extensions.
     let g:coc_global_extensions = [
       \  'coc-css',
+      \  'coc-diagnostic',
       \  'coc-eslint',
       \  'coc-git',
       \  'coc-highlight',
@@ -332,6 +333,9 @@ call plug#begin('~/.vim/plugged')
       \  'coc-yaml']
 
     let g:coc_user_config = {
+      \   "diagnostic-languageserver.filetypes": {
+      \     "sh": "shellcheck",
+      \   },
       \  "eslint.autoFixOnSave": "true",
       \  "git.addedSign.text": "┃",
       \  "git.addedSign.hlGroup": "DiffAdded",
