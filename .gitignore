@@ -1,7 +1,4 @@
-vim/plugged
-vim/autoload
-vim/undo*
-vim/.netrwhist
+nvim/undo*
 ssh/*
 lftp/*
 !lftp/rc

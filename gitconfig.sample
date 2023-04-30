@@ -19,7 +19,7 @@
   quotepath = false
   autocrlf = false
   safecrlf = true
-  editor = "NVIM_TUI_ENABLE_TRUE_COLOR=1 vim"
+  editor = "nvim"
 [color]
   ui = auto
 [branch]
