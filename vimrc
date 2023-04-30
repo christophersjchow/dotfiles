@@ -49,6 +49,7 @@ call plug#begin('~/.vim/plugged')
   set encoding=utf8                            " Always use unicode.
   set spelllang=en_au                          " Set spell check language.
   set shortmess=aIoOc                          " Show short messages, no intro.
+  set clipboard+=unnamedplus                   " Enable system clipboard support
 
   set hidden                                   " Allow hidden buffers.
   set history=100                              " Size of command history.
@@ -295,6 +296,7 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " JavaScript and TypeScript {{{
+    Plug 'wuelnerdotexe/vim-astro'             " Astro support
     Plug 'HerringtonDarkholme/yats.vim'        " TypeScript
     Plug 'yuezk/vim-js'                        " JavaScript
     Plug 'maxmellon/vim-jsx-pretty'            " TSX and JSX
@@ -333,9 +335,18 @@ call plug#begin('~/.vim/plugged')
       \  'coc-yaml']
 
     let g:coc_user_config = {
-      \   "diagnostic-languageserver.filetypes": {
-      \     "sh": "shellcheck",
-      \   },
+      \  "diagnostic-languageserver.filetypes": {
+      \    "sh": "shellcheck"
+      \  },
+      \  "diagnostic-languageserver.formatFiletypes": {
+      \    "sh": "shfmt"
+      \  },
+      \  "diagnostic-languageserver.formatters": {
+      \    "shfmt": {
+      \      "command": "shfmt",
+      \      "args": ["-i", "2", "-bn", "-ci", "-sr"]
+      \    }
+      \  },
       \  "eslint.autoFixOnSave": "true",
       \  "git.addedSign.text": "┃",
       \  "git.addedSign.hlGroup": "DiffAdded",
@@ -351,7 +362,7 @@ call plug#begin('~/.vim/plugged')
       \  "solargraph.promptDownload": "false",
       \  "yaml.format.enable": "true",
       \  "coc.preferences.colorSupport": "true",
-      \  "coc.preferences.formatOnSaveFiletypes": ["markdown", "javascript", "javascript.jsx", "typescript", "typescript.tsx", "ruby", "yaml"]
+      \  "coc.preferences.formatOnSaveFiletypes": ["markdown", "javascript", "javascript.jsx", "typescript", "typescript.tsx", "ruby", "yaml", "astro", "sh"]
       \ }
 
     " Use tab for trigger completion with characters ahead and navigate.
@@ -418,9 +429,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Theme {{{
-  " base16-shell 256 colour support
-  let base16colorspace=256
-  colorscheme base16-tomorrow-night
+  if filereadable(expand("$HOME/.config/tinted-theming/set_theme.vim"))
+    let base16colorspace=256
+    source $HOME/.config/tinted-theming/set_theme.vim
+  endif
 " }}}
 
 " COC Colours {{{

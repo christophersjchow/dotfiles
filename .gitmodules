@@ -7,3 +7,9 @@
 [submodule "colours/base16-shell"]
 	path = colours/base16-shell
 	url = https://github.com/base16-project/base16-shell.git
+[submodule "colours/base16-tmux"]
+	path = colours/base16-tmux
+	url = https://github.com/tinted-theming/base16-tmux.git
+[submodule "colours/base16-fzf"]
+	path = colours/base16-fzf
+	url = https://github.com/tinted-theming/base16-fzf.git
