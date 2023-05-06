@@ -23,9 +23,20 @@ return {
       { "<leader><leader>r", ":Rename ", desc = "Rename current file" },
     },
   },
+
+  -- Language syntax support
+  { "HerringtonDarkholme/yats.vim" },
+  { "aklt/plantuml-syntax" },
   { "chr4/nginx.vim" },
   { "hashivim/vim-packer" },
   { "hashivim/vim-terraform" },
-  { "towolf/vim-helm" },
+  { "jparise/vim-graphql" },
+  { "maxmellon/vim-jsx-pretty" },
   { "pearofducks/ansible-vim" },
+  { "towolf/vim-helm" },
+  { "tpope/vim-rails" },
+  { "tpope/vim-rake" },
+  { "vim-ruby/vim-ruby" },
+  { "wuelnerdotexe/vim-astro" },
+  { "yuezk/vim-js" },
 }
