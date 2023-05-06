@@ -23,4 +23,9 @@ return {
       { "<leader><leader>r", ":Rename ", desc = "Rename current file" },
     },
   },
+  { "chr4/nginx.vim" },
+  { "hashivim/vim-packer" },
+  { "hashivim/vim-terraform" },
+  { "towolf/vim-helm" },
+  { "pearofducks/ansible-vim" },
 }
