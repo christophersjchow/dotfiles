@@ -24,6 +24,34 @@ return {
     },
   },
 
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+    -- stylua: ignore
+    close_command = function(n) require("mini.bufremove").delete(n, false) end,
+    -- stylua: ignore
+    right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = true,
+        diagnostics_indicator = function(_, _, diag)
+          local icons = require("lazyvim.config").icons.diagnostics
+          local ret = (diag.error and icons.Error .. diag.error .. " " or "")
+            .. (diag.warning and icons.Warn .. diag.warning or "")
+          return vim.trim(ret)
+        end,
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Neo-tree",
+            highlight = "Directory",
+            text_align = "left",
+          },
+        },
+      },
+    },
+  },
+
   -- From receipes to setup supertab behaviour
   {
     "L3MON4D3/LuaSnip",
@@ -76,7 +104,20 @@ return {
       })
     end,
   },
-
+  {
+    "vim-test/vim-test",
+    keys = {
+      { "<leader>R", ":w<cr> :TestNearest<cr>", desc = "Run nearest test", silent = true },
+      { "<leader>c", ":w<cr> :TestClass<cr>", desc = "Run test class", silent = true },
+      { "<leader>r", ":w<cr> :TestFile<cr>", desc = "Run test file", silent = true },
+      { "<leader>a", ":w<cr> :TestSuite<cr>", desc = "Run test suite", silent = true },
+      { "<leader>l", ":w<cr> :TestLast<cr>", desc = "Run last test", silent = true },
+      { "<leader>g", ":w<cr> :TestVisit<cr>", desc = "Run test in last visited test file", silent = true },
+    },
+    config = function()
+      vim.g["test#strategy"] = "neovim"
+    end,
+  },
   -- Language syntax support
   { "HerringtonDarkholme/yats.vim" },
   { "aklt/plantuml-syntax" },
