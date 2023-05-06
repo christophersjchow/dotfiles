@@ -9,5 +9,8 @@ vim.g.maplocalleader = ","
 -- Disable relative line numbers
 vim.opt.relativenumber = false
 
+-- Reset conceallevel to default
+vim.opt.conceallevel = 0
+
 -- Set undodir
 vim.opt.undodir = vim.fn.expand("~/.config/nvim/undo")
