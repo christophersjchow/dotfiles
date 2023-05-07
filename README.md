@@ -1,32 +1,29 @@
-## dotfiles
+# dotfiles
 
-These are my dotfiles.
+These are my dotfiles I've used in some form over the last 10+ years.
 
-## Prerequisites
+## Prequisites
 
-The following assumptions are made:
+- [iTerm2](http://www.iterm2.com/)
+- [homebrew](http://brew.sh/)
 
-- [iTerm2](http://www.iterm2.com/) is used instead of Terminal.app
-- [homebrew](http://brew.sh/) is used
-- Latest version of tmux is installed from homebrew
-- Latest version of zsh is installed from homebrew
-- Latest version of neovim is installed from homebrew
-- Latest version of fzf and ripgrep from homebrew
-- User shell is changed to the homebrew version `/usr/local/bin/zsh`
+## Setup
 
-## Base16 Colours
+- Install [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) tap and run `brew bundle` to install packages required
+- After all packages are installed, change your login shell to the homebrew installed version of zsh `/usr/local/bin/zsh`
 
-I use the [base16](http://chriskempson.github.io/base16/) theme tomorrow dark.
-Make sure to load the iTerm2 colour pallete from `~/.colours/base16-iterm2`.
+### Base16 Colours
 
-If you wish to use a different colour, simply change the `colourscheme` in `~/.vimrc` and
-the colourspace script loaded in `~/.zshrc.`
+I use the [base16](https://github.com/tinted-theming/base16-shell) scripts to set the theme across the shell, tmux and neovim.
+Make sure to load the iTerm2 colour preset from the [base16-iterm2](https://github.com/tinted-theming/base16-iterm2/tree/0515228b68481627124253d56ba75e812bbb57d7) submodule.
+
+If you wish to use a different colour, simply change the `BASE16_THEME` in `~/.zshrc`.
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2017 Christopher Chow
+Copyright (c) 2023 Christopher Chow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
