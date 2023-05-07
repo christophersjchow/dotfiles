@@ -41,6 +41,9 @@ if (( $+commands[brew] )); then
   fpath=($fpath $HOMEBREW_PREFIX/share/zsh/site-functions)
 fi
 
+# Shellfish app onfig
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+
 alias a='tmux attach -t'
 alias g='git'
 alias v='nvim'
@@ -55,5 +58,3 @@ alias mux='tmuxinator'
 alias tf='terraform'
 alias k='kubectl'
 alias kx='kubectx'
-
-test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"

@@ -1,3 +1,5 @@
+# vim: syntax=ruby filetype=ruby
+
 require 'amazing_print'
 
 AmazingPrint.pry! if defined?(AmazingPrint)
