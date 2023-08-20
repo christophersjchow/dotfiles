@@ -10,8 +10,8 @@
   pushsub = submodule foreach "git push origin master"
   pullsub = submodule foreach "git pull origin master"
 [user]
-  name = Kinesis User
-  email = user@kinesis.org
+  name = You Name
+  email = user@example.com
 [core]
   legacyheaders = false
   excludesfile = ~/.gitexclude
