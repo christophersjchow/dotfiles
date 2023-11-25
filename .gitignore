@@ -1,5 +1,6 @@
 nvim/undo*
 nvim/lazy-lock.json
+nvim/lazyvim.json
 ssh/*
 lftp/*
 !lftp/rc
