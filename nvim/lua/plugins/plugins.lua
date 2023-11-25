@@ -5,13 +5,11 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
+  { "RRethy/nvim-base16" },
   {
-    "freddiehaddad/base16-nvim",
-    dependencies = { "RRethy/nvim-base16" },
+    "LazyVim/LazyVim",
     opts = {
-      hot_reload = {
-        enabled = true,
-      },
+      colorscheme = "base16-tomorrow-night",
     },
   },
   { "tpope/vim-surround" },
