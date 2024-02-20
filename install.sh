@@ -26,7 +26,7 @@ main_dotfiles=(
 
 declare -A xdg_config
 xdg_config=(
-	[vim]=nvim
+	[nvim]=nvim
 )
 
 for file in "${main_dotfiles[@]}"; do
