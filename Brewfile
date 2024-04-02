@@ -23,6 +23,4 @@ brew 'shellcheck'
 brew 'ripgrep'
 
 # Casks
-brew 'chromedriver'
 brew 'font-sauce-code-pro-nerd-font'
-brew 'google-cloud-sdk'

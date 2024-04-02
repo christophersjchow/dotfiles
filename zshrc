@@ -10,7 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
 # Load base16-shell
 export BASE16_THEME="tomorrow-night"
 export BASE16_FZF_PATH="$HOME/.colours/base16-fzf"
@@ -29,16 +28,6 @@ else
   if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
     . $HOME/.asdf/asdf.sh
   fi
-fi
-
-# Google Cloud SDK
-if (( $+commands[brew] )); then
-  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-  source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-
-  # Load homebrew completions
-  fpath=($fpath $HOMEBREW_PREFIX/share/zsh/site-functions)
 fi
 
 # Shellfish app onfig
