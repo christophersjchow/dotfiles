@@ -7,6 +7,8 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
 tap 'homebrew/services'
 
+brew 'curl'
+brew 'coreutils'
 brew 'zsh'
 brew 'tmux'
 brew 'fzf'
@@ -18,6 +20,7 @@ brew 'yarn'
 brew 'asdf'
 brew 'direnv'
 brew 'shellcheck'
+brew 'ripgrep'
 
 # Casks
 brew 'chromedriver'
