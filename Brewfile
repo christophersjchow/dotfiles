@@ -6,6 +6,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
 tap 'homebrew/services'
+tap 'tinted-theming/tinted'
 
 brew 'zsh'
 brew 'tmux'
@@ -18,6 +19,7 @@ brew 'yarn'
 brew 'asdf'
 brew 'direnv'
 brew 'shellcheck'
+brew 'tinty'
 
 # Casks
 brew 'chromedriver'

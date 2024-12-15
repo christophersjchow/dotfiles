@@ -10,14 +10,32 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Tinty isn't able to apply environment variables to your shell due to
+# the way shell sub-processes work. This is a work around by running
+# Tinty through a function and then executing the shell scripts.
+tinty_source_shell_theme() {
+  newer_file=$(mktemp)
+  tinty $@
+  subcommand="$1"
 
-# Load base16-shell
-export BASE16_THEME="tomorrow-night"
-export BASE16_FZF_PATH="$HOME/.colours/base16-fzf"
-BASE16_SHELL_PATH="$HOME/.colours/base16-shell"
-[ -n "$PS1" ] && \
-  [ -s "$BASE16_SHELL_PATH/profile_helper.sh" ] && \
-    source "$BASE16_SHELL_PATH/profile_helper.sh"
+  if [ "$subcommand" = "apply" ] || [ "$subcommand" = "init" ]; then
+    tinty_data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/tinted-theming/tinty"
+
+    while read -r script; do
+      # shellcheck disable=SC1090
+      . "$script"
+    done < <(find "$tinty_data_dir" -maxdepth 1 -type f -name "*.sh" -newer "$newer_file")
+
+    unset tinty_data_dir
+  fi
+
+  unset subcommand
+}
+
+if [ -n "$(command -v 'tinty')" ]; then
+  tinty_source_shell_theme "init" > /dev/null
+  alias tinty=tinty_source_shell_theme
+fi
 
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi

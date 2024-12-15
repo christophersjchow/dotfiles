@@ -2,7 +2,7 @@
 
 These are my dotfiles I've used in some form over the last 10+ years.
 
-## Prequisites
+## Prerequisites
 
 - [iTerm2](http://www.iterm2.com/)
 - [homebrew](http://brew.sh/)
@@ -12,12 +12,11 @@ These are my dotfiles I've used in some form over the last 10+ years.
 - Install [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) tap and run `brew bundle` to install packages required
 - After all packages are installed, change your login shell to the homebrew installed version of zsh `/usr/local/bin/zsh`
 
-### Base16 Colours
+### Base16/24 Colours
 
-I use the [base16](https://github.com/tinted-theming/base16-shell) scripts to set the theme across the shell, tmux and neovim.
-Make sure to load the iTerm2 colour preset from the [base16-iterm2](https://github.com/tinted-theming/base16-iterm2/tree/0515228b68481627124253d56ba75e812bbb57d7) submodule.
+I use the [tinty](https://github.com/tinted-theming/tinty) to set the themes across the shell, tmux and neovim.
 
-If you wish to use a different colour, simply change the `BASE16_THEME` in `~/.zshrc`.
+If you wish to use a different colour, just run `tinty apply THEME` and this will persist across shell sessions.
 
 ## License
 

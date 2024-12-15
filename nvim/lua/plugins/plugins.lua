@@ -5,11 +5,12 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  { "RRethy/nvim-base16" },
+  { "tinted-theming/tinted-vim" },
   {
     "LazyVim/LazyVim",
+    version = false,
     opts = {
-      colorscheme = "base16-tomorrow-night",
+      colorscheme = "base24-chalk",
     },
   },
   { "tpope/vim-surround" },
@@ -49,7 +50,6 @@ return {
       },
     },
   },
-
   -- From receipes to setup supertab behaviour
   {
     "L3MON4D3/LuaSnip",

@@ -1,0 +1,24 @@
+[[items]]
+path = "https://github.com/tinted-theming/tinted-shell"
+name = "tinted-shell"
+themes-dir = "scripts"
+hook = ". %f"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-tmux"
+name = "tinted-tmux"
+# Check if tmux is in use and if it is, reload the config file
+hook = "tmux run 2> /dev/null && tmux source-file %f"
+themes-dir = "colors"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-fzf"
+name = "tinted-fzf"
+themes-dir = "sh"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-iterm2"
+name = "tinted-iterm2"
+hook = "sh %f"
+themes-dir = "scripts"
+supported-systems = ["base16", "base24"]
