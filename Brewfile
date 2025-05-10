@@ -2,8 +2,6 @@
 
 # Setup taps
 tap 'homebrew/bundle'
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
 tap 'homebrew/services'
 tap 'tinted-theming/tinted'
 tap 'jesseduffield/lazygit'
@@ -21,6 +19,7 @@ brew 'asdf'
 brew 'direnv'
 brew 'shellcheck'
 brew 'tinty'
+brew 'ripgrep'
 
 # Casks
 cask 'font-sauce-code-pro-nerd-font'
