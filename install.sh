@@ -20,11 +20,11 @@ main_dotfiles=(
   hushlogin
   gitexclude
   gemrc
-  asdfrc
 )
 
 declare -a xdg_config
 xdg_config=(
+  mise
   nvim
   tinted-theming
 )

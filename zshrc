@@ -40,14 +40,8 @@ fi
 # Load direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
-# Load asdf
-if which brew > /dev/null; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-else
-  if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
-    . $HOME/.asdf/asdf.sh
-  fi
-fi
+# Load mise
+if which mise > /dev/null; then eval "$(mise activate zsh --shims)"; fi
 
 # Google Cloud SDK
 if (( $+commands[brew] )); then
