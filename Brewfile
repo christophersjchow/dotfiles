@@ -19,6 +19,7 @@ brew 'direnv'
 brew 'shellcheck'
 brew 'tinty'
 brew 'ripgrep'
+brew 'op-cli'
 
 # Casks
 cask 'font-sauce-code-pro-nerd-font'
