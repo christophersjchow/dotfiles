@@ -41,7 +41,7 @@ fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # Load mise
-if which mise > /dev/null; then eval "$(mise activate zsh --shims)"; fi
+if which mise > /dev/null; then eval "$(mise activate zsh)"; fi
 
 # Google Cloud SDK
 if (( $+commands[brew] )); then
