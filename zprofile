@@ -44,8 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  /opt/homebrew/bin
-  /opt/homebrew/opt/postgresql@11/bin
+  /opt/homebrew/{bin,sbin}
+  /opt/homebrew/opt/postgresql@17/bin
   /opt/homebrew/opt/openjdk/bin
   $path
 )
