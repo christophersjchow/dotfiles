@@ -1,33 +1,44 @@
-[alias]
-  s = "status -sb"
-  l = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
-  gl = log --oneline --decorate --stat --graph
-  co = checkout
-  cot = checkout --track
-  sf = submodule foreach
-  c  = "!git log --oneline | wc -l "
-  ignored = "!git ls-files --others -i --exclude-standard --directory"
-  pushsub = submodule foreach "git push origin master"
-  pullsub = submodule foreach "git pull origin master"
 [user]
-  name = You Name
-  email = user@example.com
+	# name = Change Me
+	# email = hello@example.com
+	# signingkey = xxx
 [core]
   legacyheaders = false
-  excludesfile = ~/.gitexclude
+	excludesfile = ~/.gitexclude
   whitespace = trailing-space,space-before-tab
   quotepath = false
   autocrlf = false
   safecrlf = true
   editor = "nvim"
-[color]
-  ui = auto
 [branch]
-  autosetupmerge = true
-[advice]
-  pushNonFastForward = false
-  statusHints = false
+	sort = -committerdate
+  autosetupmerge = always
+  autosetuprebase = always
+[tag]
+  sort = version:refname
+	gpgSign = true
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = 1
+	autoupdate = 1
 [push]
   default = tracking
-[rerere]
-  enabled = true
+	autoSetupRemote = true
+	followTags = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[alias]
+  s = "status -sb"
+  l = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
+  co = checkout
+[color]
+  ui = auto
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
