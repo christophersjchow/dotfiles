@@ -25,9 +25,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        tf = { "tfmt" },
-        terraform = { "tfmt" },
-        hcl = { "tfmt" },
+        opentofu = { "tfmt" },
       },
       formatters = {
         tfmt = {
@@ -40,18 +38,17 @@ return {
     },
   },
   {
-    "nathom/filetype.nvim",
-    config = function()
-      -- Setup overrides for file extensions
-      require("filetype").setup({
-        overrides = {
-          extensions = {
-            tf = "terraform",
-            tfvars = "terraform",
-            tfstate = "json",
-          },
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- Map .tofu to its own filetype
+      vim.filetype.add({
+        extension = {
+          tofu = "opentofu", -- unique filetype for .tofu files
         },
       })
+
+      -- Tell Treesitter to use hcl parser for the "tofu" filetype
+      vim.treesitter.language.register("hcl", "opentofu")
     end,
   },
 }
