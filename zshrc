@@ -56,6 +56,9 @@ fi
 # Shellfish app onfig
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
+# Setup 1Password SSH Agent
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 alias a='tmux attach -t'
 alias g='git'
 alias v='nvim'
