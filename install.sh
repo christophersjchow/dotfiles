@@ -10,16 +10,17 @@ main_dotfiles=(
   zshrc
   zprezto
   zpreztorc
-  nvim
-  tmux.conf
-  sqliterc
-  screenrc
-  pryrc
-  lscolors
-  lftp
-  hushlogin
-  gitexclude
   gemrc
+  gitexclude
+  hushlogin
+  lftp
+  lscolors
+  npmrc
+  nvim
+  pryrc
+  screenrc
+  sqliterc
+  tmux.conf
 )
 
 declare -a xdg_config
