@@ -3,4 +3,4 @@ node = "22"
 ruby = "3"
 
 [settings]
-idiomatic_version_file_enable_tools = ["nodejs", "ruby"]
+idiomatic_version_file_enable_tools = ["node", "ruby"]
