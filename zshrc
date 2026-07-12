@@ -5,6 +5,22 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Preserve an agent forwarded into an SSH session; otherwise use 1Password.
+onepassword_agent="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+if [[ -z ${SSH_CONNECTION:-} || -z ${SSH_AUTH_SOCK:-} || ! -S ${SSH_AUTH_SOCK} ]]; then
+  export SSH_AUTH_SOCK="$onepassword_agent"
+fi
+unset onepassword_agent
+
+# Skip automatic Git commit and tag signing in SSH sessions.
+if [[ -n ${SSH_CONNECTION:-} ]]; then
+  export GIT_CONFIG_COUNT=2
+  export GIT_CONFIG_KEY_0=commit.gpgsign
+  export GIT_CONFIG_VALUE_0=false
+  export GIT_CONFIG_KEY_1=tag.gpgsign
+  export GIT_CONFIG_VALUE_1=false
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -58,9 +74,6 @@ fi
 
 # Shellfish app onfig
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
-
-# Setup 1Password SSH Agent
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 alias a='tmux attach -t'
 alias g='git'
