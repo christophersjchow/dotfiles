@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# sshd runs this for every session, including direct commands that bypass the
+# interactive shell. Refresh the stable indirection before Herdr or tmux can
+# inherit it. Never write to stdout: direct commands may use it as a protocol.
+agent_refresh=${XDG_CONFIG_HOME:-"$HOME/.config"}/ssh-agent/refresh
+
+if [ -n "${SSH_AUTH_SOCK:-}" ] && [ -S "$SSH_AUTH_SOCK" ] && [ -x "$agent_refresh" ]; then
+  "$agent_refresh" "$SSH_AUTH_SOCK" >/dev/null 2>&1 || :
+fi
+
+unset agent_refresh

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+set -eu
+
+fixture_root=$(mktemp -d "${TMPDIR:-/tmp}/ssh-agent-rc.XXXXXX")
+old_agent_pid=
+new_agent_pid=
+
+cleanup() {
+  if [ -n "$old_agent_pid" ]; then
+    kill "$old_agent_pid" 2>/dev/null || true
+  fi
+  if [ -n "$new_agent_pid" ]; then
+    kill "$new_agent_pid" 2>/dev/null || true
+  fi
+  rm -rf "$fixture_root"
+}
+trap cleanup EXIT HUP INT TERM
+
+mkdir -p "$fixture_root/home/.config/ssh-agent" "$fixture_root/home/.ssh/agent"
+script_directory=$(CDPATH='' cd -- "$(dirname "$0")" && pwd)
+ln -s "$script_directory/refresh" "$fixture_root/home/.config/ssh-agent/refresh"
+
+old_socket="$fixture_root/old-agent.sock"
+new_socket="$fixture_root/new-agent.sock"
+old_agent_output=$(ssh-agent -a "$old_socket" -s)
+old_agent_pid=$(printf '%s\n' "$old_agent_output" | sed -n 's/^SSH_AGENT_PID=\([0-9][0-9]*\);.*/\1/p')
+new_agent_output=$(ssh-agent -a "$new_socket" -s)
+new_agent_pid=$(printf '%s\n' "$new_agent_output" | sed -n 's/^SSH_AGENT_PID=\([0-9][0-9]*\);.*/\1/p')
+
+ln -s "$old_socket" "$fixture_root/home/.ssh/agent/current"
+
+HOME="$fixture_root/home" \
+  SSH_CONNECTION="client 123 host 22" \
+  SSH_AUTH_SOCK="$new_socket" \
+  sh "$(dirname "$0")/rc"
+
+actual_target=$(readlink "$fixture_root/home/.ssh/agent/current")
+if [ "$actual_target" != "$new_socket" ]; then
+  printf 'Expected stable socket to target %s, got %s\n' "$new_socket" "$actual_target" >&2
+  exit 1
+fi
+
+SSH_AUTH_SOCK="$fixture_root/home/.ssh/agent/current" ssh-add -l 2>&1 |
+  grep -q 'The agent has no identities'
+
+printf 'SSH rc refreshed the stable socket from the new forwarded agent.\n'

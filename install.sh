@@ -27,6 +27,7 @@ declare -a xdg_config
 xdg_config=(
   mise
   nvim
+  ssh-agent
   tinted-theming
 )
 
@@ -37,3 +38,7 @@ done
 for file in "${xdg_config[@]}"; do
   ln -nfs "$ROOT/$file" "$HOME/.config/$file"
 done
+
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+ln -nfs "$ROOT/ssh-agent/rc" "$HOME/.ssh/rc"
