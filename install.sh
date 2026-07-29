@@ -39,6 +39,9 @@ for file in "${xdg_config[@]}"; do
   ln -nfs "$ROOT/$file" "$HOME/.config/$file"
 done
 
+mkdir -p "$HOME/.config/herdr"
+ln -nfs "$ROOT/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 ln -nfs "$ROOT/ssh-agent/rc" "$HOME/.ssh/rc"

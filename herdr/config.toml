@@ -1,0 +1,21 @@
+# Skip the first-run flow; this file owns Herdr's preferences.
+onboarding = false
+
+[theme]
+# Inherit the terminal palette managed by tinty.
+name = "terminal"
+
+[terminal]
+shell_mode = "auto"
+new_cwd = "follow"
+
+[keys]
+# Match the prefix used in tmux.conf.
+prefix = "ctrl+e"
+
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+width = "90%"
+height = "90%"
