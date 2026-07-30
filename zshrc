@@ -121,7 +121,7 @@ alias mux='tmuxinator'
 alias tf='tofu'
 alias k='kubectl'
 alias kx='kubectx'
-
+alias ls='ls --color=auto'
 # Support terminals that send either normal or application cursor sequences.
 for keymap in emacs viins; do
   bindkey -M "$keymap" '^[[A' history-substring-search-up
