@@ -47,6 +47,7 @@ path=(
   /opt/homebrew/{bin,sbin}
   /opt/homebrew/opt/postgresql@17/bin
   /opt/homebrew/opt/openjdk/bin
+  /opt/homebrew/share/google-cloud-sdk/bin
   $HOME/.docker/bin
   $HOME/.local/bin
   $path

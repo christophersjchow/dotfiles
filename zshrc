@@ -77,11 +77,14 @@ if [ -n "$(command -v 'tinty')" ]; then
 fi
 
 # Load direnv
-if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+if which direnv > /dev/null; then
+  eval "$(direnv hook zsh)";
+fi
 
 # Load mise and its shell completions
 if which mise > /dev/null; then
-  eval "$(mise activate zsh)"
+  eval "$(mise activate zsh --shims)";
+  eval "$(mise hook-env)"; # for tmux
   source <(mise completion zsh)
 fi
 
@@ -98,15 +101,7 @@ fi
 # Shellfish app onfig
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
-# ShellFish appends LC_TERMINAL every time it is sourced. Keep tmux's attach
-# environment canonical and include the original agent used by local clients.
-if [[ -n ${TMUX:-} ]]; then
-  tmux set-option -g update-environment \
-    'DISPLAY KRB5CCNAME MSYSTEM SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_AGENT_SOURCE_SOCK SSH_CONNECTION WINDOWID XAUTHORITY LC_TERMINAL'
-fi
-
-alias agent-status='${XDG_CONFIG_HOME:-$HOME/.config}/ssh-agent/refresh --status'
-
+# Aliases
 alias a='tmux attach -t'
 alias g='git'
 alias v='nvim'
@@ -122,6 +117,7 @@ alias tf='tofu'
 alias k='kubectl'
 alias kx='kubectx'
 alias ls='ls --color=auto'
+
 # Support terminals that send either normal or application cursor sequences.
 for keymap in emacs viins; do
   bindkey -M "$keymap" '^[[A' history-substring-search-up
